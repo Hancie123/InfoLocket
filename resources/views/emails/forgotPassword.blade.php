@@ -42,14 +42,18 @@
         .reset-link:hover {
             background-color: #0056b3;
         }
+
+        #mylink{
+            color:white;
+        }
     </style>
 </head>
 <body>
     <div class="email-container">
-        <h1>Om Kalpataru Carriers Pvt.Ltd</h1><br>
+        <h1>InfoLocket</h1><br>
         <h4>Forgot Password Email</h4>
         <p>You can reset your password using the link below:</p>
-        <a class="reset-link text-light" href="{{ route('reset.password.get', $token) }}">Reset Password</a>
+        <a class="reset-link text-light" id="mylink" href="{{ route('reset.password.get', $token) }}">Reset Password</a>
     </div>
 </body>
 </html>

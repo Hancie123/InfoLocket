@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Hash;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class ResetPasswordController extends Controller
@@ -52,8 +52,7 @@ class ResetPasswordController extends Controller
       {
           $request->validate([
               'email' => 'required|email|exists:users',
-              'password' => 'required|confirmed',
-              'password_confirmation' => 'required'
+              'password' => 'required',
           ]);
 
           $updatePassword = DB::table('password_reset_tokens')
@@ -67,8 +66,9 @@ class ResetPasswordController extends Controller
               return back()->withInput()->with('error', 'Invalid token!');
           }
 
+          $newPassword = Hash::make($request->password);
           $user = User::where('email', $request->email)
-             ->update(['password' => $request->password]);
+          ->update(['password' => $newPassword]);
 
 
           DB::table('password_reset_tokens')->where(['email'=> $request->email])->delete();

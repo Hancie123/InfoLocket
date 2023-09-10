@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AccountSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +30,8 @@ Route::get('/account/recovery',[ResetPasswordController::class,'forgot_password'
 Route::post('/login/forgot-password',[ResetPasswordController::class,'submitForgetPasswordForm']);
 Route::get('reset-password/{token}', [ResetPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ResetPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+Route::get('/admin/dashboard',[DashboardController::class,'dashboard'])->middleware('checksession');
+
+Route::get('/admin/profile',[ProfileController::class,'profile'])->middleware('checksession');
+Route::get('/admin/profile/account-setting',[AccountSettingController::class,'accountsetting'])->middleware('checksession');
