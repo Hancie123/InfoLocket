@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -24,6 +25,8 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::get('/logout',[LoginController::class,'logout']);
 
 
 Route::get('/account/recovery',[ResetPasswordController::class,'forgot_password']);
