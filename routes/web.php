@@ -37,4 +37,5 @@ Route::post('reset-password', [ResetPasswordController::class, 'submitResetPassw
 Route::get('/admin/dashboard',[DashboardController::class,'dashboard'])->middleware('checksession');
 
 Route::get('/admin/profile',[ProfileController::class,'profile'])->middleware('checksession');
+Route::post('/admin/profile',[ProfileController::class,'store'])->middleware('checksession');
 Route::get('/admin/profile/account-setting',[AccountSettingController::class,'accountsetting'])->middleware('checksession');
