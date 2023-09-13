@@ -4,12 +4,12 @@
 
         <ul class="navbar-item theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
-                <a href="index.html">
+                <a href="{{url('admin/dashboard')}}">
                     <img src="{{ url('assets/images/Logo.ico') }}" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="index.html" class="nav-link">InfoLocket</a>
+                <a href="{{url('admin/dashboard')}}" class="nav-link">InfoLocket</a>
             </li>
         </ul>
 

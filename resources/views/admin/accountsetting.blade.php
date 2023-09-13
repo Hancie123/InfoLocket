@@ -70,8 +70,9 @@
 
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><span>Home</span></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><span>Account Settings</span>
+                                </li>
                             </ol>
                         </nav>
 
@@ -107,235 +108,254 @@
                             data-offset="-100">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                    @if ($biodata !== null)
-                                        @foreach ($biodata as $data)
-                                            <form action="{{ url('/admin/profile') }}" method="post" id="general-info"
-                                                class="section general-info" enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="info">
-                                                    <h6 class="">General Information</h6>
-                                                    <div class="row">
-                                                        <div class="col-lg-11 mx-auto">
-                                                            <div class="row">
-                                                                <div class="col-xl-2 col-lg-12 col-md-4">
-                                                                    <div class="upload mt-4 pr-md-4">
-                                                                        <input type="hidden"
-                                                                            value="{{ Session::get('id') }}"
-                                                                            name="user_id" />
-                                                                        <input type="file" name="profile_image2"
-                                                                            id="input-file-max-fs" class="dropify"
-                                                                            data-default-file="{{ url('assets/img/200x200.jpg') }}"
-                                                                            data-max-file-size="2M" />
-                                                                        <p class="mt-2"><i
-                                                                                class="flaticon-cloud-upload mr-1"></i>
-                                                                            Upload
-                                                                            Picture</p>
-                                                                    </div>
+
+
+                                    @if (!is_null($biodata))
+                                        <form action="{{ url('/admin/profile/store') }}" method="post"
+                                            id="general-info" class="section general-info"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" value="update" name="status" />
+                                            <input type="hidden" value="{{ $biodata->bio_id }}" name="bio_id" />
+                                            <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
+                                            <div class="info">
+                                                <h6 class="">General Information</h6>
+                                                <div class="row">
+                                                    <div class="col-lg-11 mx-auto">
+                                                        <div class="row">
+                                                            <div class="col-xl-2 col-lg-12 col-md-4">
+                                                                <div class="upload mt-4 pr-md-4">
+
+                                                                    <input type="file" name="profile_image"
+                                                                        id="input-file-max-fs" class="dropify"
+                                                                        data-default-file="{{ $biodata->getFirstMediaUrl('profile_image') }}"
+                                                                        data-max-file-size="2M" />
+                                                                    <p class="mt-2"><i
+                                                                            class="flaticon-cloud-upload mr-1"></i>
+                                                                        Upload
+                                                                        Picture</p>
                                                                 </div>
-                                                                <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
-                                                                    <div class="form">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="fullName">Full
-                                                                                        Name</label>
-                                                                                    <input type="text"
+                                                            </div>
+                                                            <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+                                                                <div class="form">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label for="fullName">Full
+                                                                                    Name</label>
+                                                                                <input type="text"
+                                                                                    class="form-control"
+                                                                                    id="fullName"
+                                                                                    placeholder="Full Name"
+                                                                                    name="name"
+                                                                                    value="{{ Session::get('name') }}"
+                                                                                    readonly>
+                                                                                @error('name')
+                                                                                    <span
+                                                                                        class="text-danger">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <label class="dob-input">Date of
+                                                                                Birth</label>
+                                                                            <div class="d-sm-flex d-block">
+                                                                                <div class="form-group mr-1">
+                                                                                    <input type="date"
+                                                                                        name="dob"
                                                                                         class="form-control"
-                                                                                        id="fullName"
-                                                                                        placeholder="Full Name"
-                                                                                        name="name"
-                                                                                        value="{{ $data->name }}">
-                                                                                    @error('name')
+                                                                                        value="{{ $biodata->dob }}" />
+                                                                                    @error('dob')
                                                                                         <span
                                                                                             class="text-danger">{{ $message }}</span>
                                                                                     @enderror
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-sm-6">
-                                                                                <label class="dob-input">Date of
-                                                                                    Birth</label>
-                                                                                <div class="d-sm-flex d-block">
-                                                                                    <div class="form-group mr-1">
-                                                                                        <input type="date"
-                                                                                            name="dob"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->dob }}" />
-                                                                                        @error('dob')
-                                                                                            <span
-                                                                                                class="text-danger">{{ $message }}</span>
-                                                                                        @enderror
-                                                                                    </div>
 
-                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label for="profession">Profession</label>
-                                                                            <input type="text" name="profession"
-                                                                                class="form-control" id="profession"
-                                                                                placeholder="Designer"
-                                                                                value="{{ $data->profession }}">
-                                                                            @error('profession')
-                                                                                <span
-                                                                                    class="text-danger">{{ $message }}</span>
-                                                                            @enderror
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="info">
-
-                                                    <div class="row">
-                                                        <div class="col-md-11 mx-auto">
-                                                            <div class="form-group">
-                                                                <label for="aboutBio">Bio</label>
-                                                                <textarea class="form-control" id="aboutBio" name="bio" placeholder="Tell something interesting about yourself"
-                                                                    rows="5">{{ $data->bio }}</textarea>
-                                                                @error('bio')
-                                                                    <span class="text-danger">{{ $message }}</span>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary mx-2 my-2">Save</button>
-                                            </form>
-                                        @endforeach
-
-                                </div>
-
-
-
-                            @else
-
-                                <form action="{{ url('/admin/profile') }}" method="post" id="general-info"
-                                    class="section general-info" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="info">
-                                        <h6 class="">General Information</h6>
-                                        <div class="row">
-                                            <div class="col-lg-11 mx-auto">
-                                                <div class="row">
-                                                    <div class="col-xl-2 col-lg-12 col-md-4">
-                                                        <div class="upload mt-4 pr-md-4">
-                                                            <input type="hidden" value="{{ Session::get('id') }}"
-                                                                name="user_id" />
-                                                            <input type="file" name="profile_image2"
-                                                                id="input-file-max-fs" class="dropify"
-                                                                data-default-file="{{ url('assets/img/200x200.jpg') }}"
-                                                                data-max-file-size="2M" />
-                                                            <p class="mt-2"><i
-                                                                    class="flaticon-cloud-upload mr-1"></i> Upload
-                                                                Picture</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
-                                                        <div class="form">
-                                                            <div class="row">
-                                                                <div class="col-sm-6">
                                                                     <div class="form-group">
-                                                                        <label for="fullName">Full Name</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="fullName" placeholder="Full Name"
-                                                                            name="name">
-                                                                        @error('name')
+                                                                        <label for="profession">Profession</label>
+                                                                        <input type="text" name="profession"
+                                                                            class="form-control" id="profession"
+                                                                            placeholder="Designer"
+                                                                            value="{{ $biodata->profession }}">
+                                                                        @error('profession')
                                                                             <span
                                                                                 class="text-danger">{{ $message }}</span>
                                                                         @enderror
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-sm-6">
-                                                                    <label class="dob-input">Date of Birth</label>
-                                                                    <div class="d-sm-flex d-block">
-                                                                        <div class="form-group mr-1">
-                                                                            <input type="date" name="dob"
-                                                                                class="form-control" />
-                                                                            @error('dob')
-                                                                                <span
-                                                                                    class="text-danger">{{ $message }}</span>
-                                                                            @enderror
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="profession">Profession</label>
-                                                                <input type="text" name="profession"
-                                                                    class="form-control" id="profession"
-                                                                    placeholder="Designer">
-                                                                @error('profession')
-                                                                    <span class="text-danger">{{ $message }}</span>
-                                                                @enderror
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
 
 
-                                    <div class="info">
+                                            <div class="info">
 
-                                        <div class="row">
-                                            <div class="col-md-11 mx-auto">
-                                                <div class="form-group">
-                                                    <label for="aboutBio">Bio</label>
-                                                    <textarea class="form-control" id="aboutBio" name="bio" placeholder="Tell something interesting about yourself"
-                                                        rows="5"></textarea>
-                                                    @error('bio')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
+                                                <div class="row">
+                                                    <div class="col-md-11 mx-auto">
+                                                        <div class="form-group">
+                                                            <label for="aboutBio">Bio</label>
+                                                            <textarea class="form-control" id="aboutBio" name="bio" placeholder="Tell something interesting about yourself"
+                                                                rows="5">{{ $biodata->bio }}</textarea>
+                                                            @error('bio')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mx-2 my-2">Save</button>
-                                </form>
+                                            <button type="submit" class="btn btn-primary mx-2 my-2">Save</button>
+                                        </form>
+                                    @elseif($biodata == null)
+                                        <form action="{{ url('/admin/profile/store') }}" method="post"
+                                            id="general-info" class="section general-info"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" value="store" name="status" />
+                                            <div class="info">
+                                                <h6 class="">General Information</h6>
+                                                <div class="row">
+                                                    <div class="col-lg-11 mx-auto">
+                                                        <div class="row">
+                                                            <div class="col-xl-2 col-lg-12 col-md-4">
+                                                                <div class="upload mt-4 pr-md-4">
+                                                                    <input type="hidden"
+                                                                        value="{{ Session::get('id') }}"
+                                                                        name="user_id" />
+                                                                    <input type="file" name="profile_image"
+                                                                        id="input-file-max-fs" class="dropify"
+                                                                        data-default-file=""
+                                                                        data-max-file-size="2M" />
+                                                                    <p class="mt-2"><i
+                                                                            class="flaticon-cloud-upload mr-1"></i>
+                                                                        Upload
+                                                                        Picture</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+                                                                <div class="form">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label for="fullName">Full
+                                                                                    Name</label>
+                                                                                <input type="text"
+                                                                                    class="form-control"
+                                                                                    value="{{ Session::get('name') }}"
+                                                                                    id="fullName"
+                                                                                    placeholder="Full Name"
+                                                                                    name="name" readonly>
+                                                                                @error('name')
+                                                                                    <span
+                                                                                        class="text-danger">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <label class="dob-input">Date of
+                                                                                Birth</label>
+                                                                            <div class="d-sm-flex d-block">
+                                                                                <div class="form-group mr-1">
+                                                                                    <input type="date"
+                                                                                        name="dob"
+                                                                                        class="form-control" />
+                                                                                    @error('dob')
+                                                                                        <span
+                                                                                            class="text-danger">{{ $message }}</span>
+                                                                                    @enderror
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="profession">Profession</label>
+                                                                        <input type="text" name="profession"
+                                                                            class="form-control" id="profession"
+                                                                            placeholder="Designer">
+                                                                        @error('profession')
+                                                                            <span
+                                                                                class="text-danger">{{ $message }}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="info">
+
+                                                <div class="row">
+                                                    <div class="col-md-11 mx-auto">
+                                                        <div class="form-group">
+                                                            <label for="aboutBio">Bio</label>
+                                                            <textarea class="form-control" id="aboutBio" name="bio" placeholder="Tell something interesting about yourself"
+                                                                rows="5"></textarea>
+                                                            @error('bio')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mx-2 my-2">Save</button>
+                                        </form>
+                                    @endif
+
+
+                                </div>
+
+
                             </div>
 
 
 
-                            @endif
+
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                 <form id="work-platforms" class="section work-platforms">
                                     <div class="info">
                                         <h5 class="">Work Platforms</h5>
                                         <div class="row">
-                                            <div class="col-md-12 text-right mb-5">
-                                                <button id="add-work-platforms" class="btn btn-primary">Add</button>
-                                            </div>
-                                            <div class="col-md-11 mx-auto">
+                                            <div class="col-md-12 mx-auto">
 
                                                 <div class="platform-div">
                                                     <div class="form-group">
                                                         <label for="platform-title">Platforms Title</label>
-                                                        <input type="text" class="form-control mb-4"
+                                                        <input type="text" class="form-control"
                                                             id="platform-title" placeholder="Platforms Title"
                                                             value="Web Design">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="platform-description">Description</label>
-                                                        <textarea class="form-control mb-4" id="platform-description" placeholder="Platforms Description" rows="10">Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur.</textarea>
+                                                        <textarea class="form-control" id="platform-description" placeholder="Platforms Description" rows="7">Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur.</textarea>
                                                     </div>
                                                 </div>
 
                                             </div>
 
                                         </div>
+                                        <button id="add-work-platforms" class="btn btn-primary">Add</button>
                                     </div>
                                 </form>
 
                             </div>
 
+                            @if($usercontact!==null)
+                                {{-- ----------- Contact Section ------------------------ --}}
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                <form id="contact" class="section contact">
+                                <form id="contact" action="{{ url('/admin/profile/contact/store') }}"
+                                    method="post" class="section contact">
+                                    @csrf
+                                    <input type="hidden" value="update" name="status" />
+                                    <input type="hidden" value="{{ $usercontact->usercontact_id}}" name="contact_id" />
+                                    <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
                                     <div class="info">
                                         <h5 class="">Contact</h5>
                                         <div class="row">
@@ -344,63 +364,167 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="country">Country</label>
-                                                            <select class="form-control" id="country">
+                                                            <select class="form-control" id="country"
+                                                                name="country">
                                                                 <option>All Countries</option>
-                                                                <option selected>United States</option>
+                                                                <option selected>{{$usercontact->country}}</option>
+                                                                <option>Nepal</option>
                                                                 <option>India</option>
-                                                                <option>Japan</option>
                                                                 <option>China</option>
+                                                                <option>Japan</option>
+                                                                <option>Australia</option>
+                                                                <option>Dubai</option>
                                                                 <option>Brazil</option>
                                                                 <option>Norway</option>
                                                                 <option>Canada</option>
                                                             </select>
+                                                            @error('country')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="address">Address</label>
-                                                            <input type="text" class="form-control mb-4"
-                                                                id="address" placeholder="Address"
-                                                                value="New York">
+                                                            <input type="text" class="form-control" id="address"
+                                                                placeholder="Address" name="address" value={{$usercontact->address}}>
+                                                            @error('address')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="location">Location</label>
-                                                            <input type="text" class="form-control mb-4"
-                                                                id="location" placeholder="Location">
+                                                            <input type="text" class="form-control" id="location"
+                                                                placeholder="Location" name="location" value="{{$usercontact->location}}">
+                                                            @error('location')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="phone">Phone</label>
-                                                            <input type="text" class="form-control mb-4"
-                                                                id="phone"
+                                                            <input type="text" class="form-control" id="phone"
                                                                 placeholder="Write your phone number here"
-                                                                value="+1 (530) 555-12121">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="email">Email</label>
-                                                            <input type="text" class="form-control mb-4"
-                                                                id="email" placeholder="Write your email here"
-                                                                value="Jimmy@gmail.com">
+                                                                name="phone" value="{{$usercontact->phone}}">
+                                                            @error('phone')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="website1">Website</label>
-                                                            <input type="text" class="form-control mb-4"
-                                                                id="website1" placeholder="Write your website here">
+                                                            <input type="url" class="form-control" id="website1"
+                                                                placeholder="Write your website here" name="website" value="{{$usercontact->website}}">
+                                                            @error('website')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="submit" class="btn btn-primary mt-0 m-3">Update Contact</button>
                                 </form>
                             </div>
+                            {{-- ----------- Contact Section ------------------------ --}}
+
+                            @else
+                            {{-- ----------- Contact Section ------------------------ --}}
+                            <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                <form id="contact" action="{{ url('/admin/profile/contact/store') }}"
+                                    method="post" class="section contact">
+                                    @csrf
+                                    <input type="hidden" value="store" name="status" />
+                                    <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
+                                    <div class="info">
+                                        <h5 class="">Contact</h5>
+                                        <div class="row">
+                                            <div class="col-md-11 mx-auto">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="country">Country</label>
+                                                            <select class="form-control" id="country"
+                                                                name="country">
+                                                                <option>All Countries</option>
+                                                                <option selected>Nepal</option>
+                                                                <option>India</option>
+                                                                <option>China</option>
+                                                                <option>Japan</option>
+                                                                <option>Australia</option>
+                                                                <option>Dubai</option>
+                                                                <option>Brazil</option>
+                                                                <option>Norway</option>
+                                                                <option>Canada</option>
+                                                            </select>
+                                                            @error('country')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="address">Address</label>
+                                                            <input type="text" class="form-control" id="address"
+                                                                placeholder="Address" name="address">
+                                                            @error('address')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="location">Location</label>
+                                                            <input type="text" class="form-control" id="location"
+                                                                placeholder="Location" name="location">
+                                                            @error('location')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="phone">Phone</label>
+                                                            <input type="text" class="form-control" id="phone"
+                                                                placeholder="Write your phone number here"
+                                                                name="phone">
+                                                            @error('phone')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="website1">Website</label>
+                                                            <input type="url" class="form-control" id="website1"
+                                                                placeholder="Write your website here" name="website">
+                                                            @error('website')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-0 m-3">Save Contact</button>
+                                </form>
+                            </div>
+                            {{-- ----------- Contact Section ------------------------ --}}
+                            @endif
+
+
 
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                                 <form id="social" class="section social">

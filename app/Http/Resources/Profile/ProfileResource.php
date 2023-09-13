@@ -17,6 +17,11 @@ class ProfileResource extends JsonResource
         return
         [
             'name'=>$this->name,
+            'profession'=>$this->profession,
+            'bio'=>$this->bio,
+            'dob'=>$this->dob,
+            'profile_image'=>$this->getFirstMediaUrl('profile_image'),
+
         ];
     }
 }

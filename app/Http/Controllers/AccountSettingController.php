@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Profile\ProfileResource;
 use Illuminate\Http\Request;
 use App\Models\Bio;
 use App\Models\User;
@@ -11,11 +12,17 @@ class AccountSettingController extends Controller
 {
     public function accountsetting(){
         $id=Session()->get('id');
-        $biodata=DB::table('users')->leftjoin('bios','bios.user_id','=','users.id')
-        ->select('users.name','bios.bio','bios.profession','bios.dob','users.id')->
-        where('id',$id)->get(); 
+        $biodata=User::with("media")->join('bios','bios.user_id','=','users.id')
+        ->select('bios.bio','bios.profession','bios.dob','users.id','bios.bio_id')->
+        where('id',$id)->first();
 
-        $count=$biodata->count();
-        return view('admin/accountsetting',compact('biodata','count'));
+        $usercontact=User::join('user_contacts','user_contacts.user_id','=','users.id')
+        ->select('user_contacts.country','user_contacts.address',
+        'user_contacts.location','users.id','user_contacts.website','user_contacts.usercontact_id','user_contacts.phone')->
+        where('id',$id)->first();
+
+
+        // $resource=ProfileResource::collection($biodata)->toArray(request());
+        return view('admin/accountsetting',compact('biodata','usercontact'));
     }
 }

@@ -11,10 +11,10 @@ class Registeraccount extends Component
     #[Rule('required')]
     public $name;
 
-    #[Rule('required')]
+    #[Rule('required|unique:users,username')]
     public $username;
 
-    #[Rule('required','email')]
+    #[Rule('required|unique:users,email|email')]
     public $email;
 
     #[Rule('required')]
@@ -22,7 +22,7 @@ class Registeraccount extends Component
 
     public function save(){
 
-        $this->validate();
+        $validated=$this->validate();
         $user=User::create([
             'name' => $this->name,
             'username' => $this->username,

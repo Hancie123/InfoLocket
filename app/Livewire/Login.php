@@ -31,6 +31,7 @@ class Login extends Component
             Auth::login($user);
             Session::put('name',$user->name);
             Session::put('id',$user->id);
+            Session::put('email',$user->email);
             return redirect('/admin/dashboard')->with('success','Welcome '. $this->username);
         } else {
             // Authentication failed
