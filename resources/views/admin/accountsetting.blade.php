@@ -318,8 +318,13 @@
 
 
 
+                            {{-- ---------------- Work Platform ------------------ --}}
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                <form id="work-platforms" class="section work-platforms">
+                                <form id="work-platforms" class="section work-platforms"
+                                    action="{{ url('/admin/profile/workplatform/store') }}" method="post">
+                                    @csrf
+
+                                    <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
                                     <div class="info">
                                         <h5 class="">Work Platforms</h5>
                                         <div class="row">
@@ -329,199 +334,215 @@
                                                     <div class="form-group">
                                                         <label for="platform-title">Platforms Title</label>
                                                         <input type="text" class="form-control"
-                                                            id="platform-title" placeholder="Platforms Title"
-                                                            value="Web Design">
+                                                            placeholder="Platforms Title" name="title">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="platform-description">Description</label>
-                                                        <textarea class="form-control" id="platform-description" placeholder="Platforms Description" rows="7">Duis aute irure dolor in reprehenderit in voluptate velit esse eu fugiat nulla pariatur.</textarea>
+                                                        <textarea class="form-control" name="description" placeholder="Platforms Description" rows="7"></textarea>
                                                     </div>
                                                 </div>
 
                                             </div>
 
                                         </div>
-                                        <button id="add-work-platforms" class="btn btn-primary">Add</button>
+                                        <button id="add-work-platforms" class="btn btn-primary">Save Work
+                                            Platform</button>
                                     </div>
                                 </form>
-
                             </div>
+                            {{-- ---------------- Work Platform ------------------ --}}
 
-                            @if($usercontact!==null)
+
+
+                            @if ($usercontact !== null)
                                 {{-- ----------- Contact Section ------------------------ --}}
-                            <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                <form id="contact" action="{{ url('/admin/profile/contact/store') }}"
-                                    method="post" class="section contact">
-                                    @csrf
-                                    <input type="hidden" value="update" name="status" />
-                                    <input type="hidden" value="{{ $usercontact->usercontact_id}}" name="contact_id" />
-                                    <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
-                                    <div class="info">
-                                        <h5 class="">Contact</h5>
-                                        <div class="row">
-                                            <div class="col-md-11 mx-auto">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="country">Country</label>
-                                                            <select class="form-control" id="country"
-                                                                name="country">
-                                                                <option>All Countries</option>
-                                                                <option selected>{{$usercontact->country}}</option>
-                                                                <option>Nepal</option>
-                                                                <option>India</option>
-                                                                <option>China</option>
-                                                                <option>Japan</option>
-                                                                <option>Australia</option>
-                                                                <option>Dubai</option>
-                                                                <option>Brazil</option>
-                                                                <option>Norway</option>
-                                                                <option>Canada</option>
-                                                            </select>
-                                                            @error('country')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                    <form id="contact" action="{{ url('/admin/profile/contact/store') }}"
+                                        method="post" class="section contact">
+                                        @csrf
+                                        <input type="hidden" value="update" name="status" />
+                                        <input type="hidden" value="{{ $usercontact->usercontact_id }}"
+                                            name="contact_id" />
+                                        <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
+                                        <div class="info">
+                                            <h5 class="">Contact</h5>
+                                            <div class="row">
+                                                <div class="col-md-11 mx-auto">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="country">Country</label>
+                                                                <select class="form-control" id="country"
+                                                                    name="country">
+                                                                    <option>All Countries</option>
+                                                                    <option selected>{{ $usercontact->country }}
+                                                                    </option>
+                                                                    <option>Nepal</option>
+                                                                    <option>India</option>
+                                                                    <option>China</option>
+                                                                    <option>Japan</option>
+                                                                    <option>Australia</option>
+                                                                    <option>Dubai</option>
+                                                                    <option>Brazil</option>
+                                                                    <option>Norway</option>
+                                                                    <option>Canada</option>
+                                                                </select>
+                                                                @error('country')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="address">Address</label>
-                                                            <input type="text" class="form-control" id="address"
-                                                                placeholder="Address" name="address" value={{$usercontact->address}}>
-                                                            @error('address')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="address">Address</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="address" placeholder="Address"
+                                                                    name="address" value={{ $usercontact->address }}>
+                                                                @error('address')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location">Location</label>
-                                                            <input type="text" class="form-control" id="location"
-                                                                placeholder="Location" name="location" value="{{$usercontact->location}}">
-                                                            @error('location')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="location">Location</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="location" placeholder="Location"
+                                                                    name="location"
+                                                                    value="{{ $usercontact->location }}">
+                                                                @error('location')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="phone">Phone</label>
-                                                            <input type="text" class="form-control" id="phone"
-                                                                placeholder="Write your phone number here"
-                                                                name="phone" value="{{$usercontact->phone}}">
-                                                            @error('phone')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="phone">Phone</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="phone"
+                                                                    placeholder="Write your phone number here"
+                                                                    name="phone" value="{{ $usercontact->phone }}">
+                                                                @error('phone')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="website1">Website</label>
-                                                            <input type="url" class="form-control" id="website1"
-                                                                placeholder="Write your website here" name="website" value="{{$usercontact->website}}">
-                                                            @error('website')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="website1">Website</label>
+                                                                <input type="url" class="form-control"
+                                                                    id="website1"
+                                                                    placeholder="Write your website here"
+                                                                    name="website"
+                                                                    value="{{ $usercontact->website }}">
+                                                                @error('website')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
+                                                        <div class="col-md-6">
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mt-0 m-3">Update Contact</button>
-                                </form>
-                            </div>
-                            {{-- ----------- Contact Section ------------------------ --}}
-
+                                        <button type="submit" class="btn btn-primary mt-0 m-3">Update
+                                            Contact</button>
+                                    </form>
+                                </div>
+                                {{-- ----------- Contact Section ------------------------ --}}
                             @else
-                            {{-- ----------- Contact Section ------------------------ --}}
-                            <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                <form id="contact" action="{{ url('/admin/profile/contact/store') }}"
-                                    method="post" class="section contact">
-                                    @csrf
-                                    <input type="hidden" value="store" name="status" />
-                                    <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
-                                    <div class="info">
-                                        <h5 class="">Contact</h5>
-                                        <div class="row">
-                                            <div class="col-md-11 mx-auto">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="country">Country</label>
-                                                            <select class="form-control" id="country"
-                                                                name="country">
-                                                                <option>All Countries</option>
-                                                                <option selected>Nepal</option>
-                                                                <option>India</option>
-                                                                <option>China</option>
-                                                                <option>Japan</option>
-                                                                <option>Australia</option>
-                                                                <option>Dubai</option>
-                                                                <option>Brazil</option>
-                                                                <option>Norway</option>
-                                                                <option>Canada</option>
-                                                            </select>
-                                                            @error('country')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                {{-- ----------- Contact Section ------------------------ --}}
+                                <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                    <form id="contact" action="{{ url('/admin/profile/contact/store') }}"
+                                        method="post" class="section contact">
+                                        @csrf
+                                        <input type="hidden" value="store" name="status" />
+                                        <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
+                                        <div class="info">
+                                            <h5 class="">Contact</h5>
+                                            <div class="row">
+                                                <div class="col-md-11 mx-auto">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="country">Country</label>
+                                                                <select class="form-control" id="country"
+                                                                    name="country">
+                                                                    <option>All Countries</option>
+                                                                    <option selected>Nepal</option>
+                                                                    <option>India</option>
+                                                                    <option>China</option>
+                                                                    <option>Japan</option>
+                                                                    <option>Australia</option>
+                                                                    <option>Dubai</option>
+                                                                    <option>Brazil</option>
+                                                                    <option>Norway</option>
+                                                                    <option>Canada</option>
+                                                                </select>
+                                                                @error('country')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="address">Address</label>
-                                                            <input type="text" class="form-control" id="address"
-                                                                placeholder="Address" name="address">
-                                                            @error('address')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="address">Address</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="address" placeholder="Address"
+                                                                    name="address">
+                                                                @error('address')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location">Location</label>
-                                                            <input type="text" class="form-control" id="location"
-                                                                placeholder="Location" name="location">
-                                                            @error('location')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="location">Location</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="location" placeholder="Location"
+                                                                    name="location">
+                                                                @error('location')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="phone">Phone</label>
-                                                            <input type="text" class="form-control" id="phone"
-                                                                placeholder="Write your phone number here"
-                                                                name="phone">
-                                                            @error('phone')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="phone">Phone</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="phone"
+                                                                    placeholder="Write your phone number here"
+                                                                    name="phone">
+                                                                @error('phone')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="website1">Website</label>
-                                                            <input type="url" class="form-control" id="website1"
-                                                                placeholder="Write your website here" name="website">
-                                                            @error('website')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="website1">Website</label>
+                                                                <input type="url" class="form-control"
+                                                                    id="website1"
+                                                                    placeholder="Write your website here"
+                                                                    name="website">
+                                                                @error('website')
+                                                                    <span class="text-danger">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
+                                                        <div class="col-md-6">
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mt-0 m-3">Save Contact</button>
-                                </form>
-                            </div>
-                            {{-- ----------- Contact Section ------------------------ --}}
+                                        <button type="submit" class="btn btn-primary mt-0 m-3">Save Contact</button>
+                                    </form>
+                                </div>
+                                {{-- ----------- Contact Section ------------------------ --}}
                             @endif
 
 

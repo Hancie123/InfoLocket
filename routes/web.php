@@ -6,6 +6,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkPlatformController;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -42,6 +43,7 @@ Route::post('/admin/profile/store',[ProfileController::class,'store'])->middlewa
 Route::post('/admin/profile/update',[ProfileController::class,'update'])->middleware('checksession');
 Route::post('/admin/profile/contact/store',[ProfileController::class,'storecontact'])->middleware('checksession');
 Route::post('/admin/profile/contact/update',[ProfileController::class,'updateContact'])->middleware('checksession');
+Route::post('/admin/profile/workplatform/store',[WorkPlatformController::class,'store'])->middleware('checksession');
 Route::get('/admin/profile/account-setting',[AccountSettingController::class,'accountsetting'])->middleware('checksession');
 
 Route::get('/storage',function(){
