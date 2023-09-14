@@ -106,8 +106,8 @@
                             <div class="widget-content widget-content-area">
                                 <div class="d-flex justify-content-between">
                                     <h3 class="">Profile</h3>
-                                    <a href="{{url('/admin/profile/account-setting')}}" class="mt-2 edit-profile"> <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a href="{{ url('/admin/profile/account-setting') }}" class="mt-2 edit-profile">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-edit-3">
@@ -116,8 +116,9 @@
                                         </svg></a>
                                 </div>
                                 <div class="text-center user-info">
-                                    <img src="{{$user->getFirstMediaUrl('profile_image') ?? null}}" alt="avatar" style="max-width:150px; max-height:120px;">
-                                    <p class="">{{Session()->get('name')}}</p>
+                                    <img src="{{ $user->getFirstMediaUrl('profile_image') ?? null }}" alt="avatar"
+                                        style="max-width:150px; max-height:120px;">
+                                    <p class="">{{ Session()->get('name') }}</p>
                                 </div>
                                 <div class="user-info-list">
 
@@ -132,11 +133,12 @@
                                                     <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
                                                     <line x1="6" y1="1" x2="6" y2="4">
                                                     </line>
-                                                    <line x1="10" y1="1" x2="10" y2="4">
+                                                    <line x1="10" y1="1" x2="10"
+                                                        y2="4">
                                                     </line>
                                                     <line x1="14" y1="1" x2="14"
                                                         y2="4"></line>
-                                                </svg> {{$biodata->profession ?? "Add your profession"}}
+                                                </svg> {{ $biodata->profession ?? 'Add your profession' }}
                                             </li>
                                             <li class="contacts-block__item">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -151,7 +153,7 @@
                                                         y2="6"></line>
                                                     <line x1="3" y1="10" x2="21"
                                                         y2="10"></line>
-                                                </svg>{{$biodata->dob ?? "Add your dob"}}
+                                                </svg>{{ $biodata->dob ?? 'Add your dob' }}
                                             </li>
                                             <li class="contacts-block__item">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -160,7 +162,8 @@
                                                     class="feather feather-map-pin">
                                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                                     <circle cx="12" cy="10" r="3"></circle>
-                                                </svg>{{$usercontact->address ?? "Add your location"}}, {{$usercontact->country ?? null}}
+                                                </svg>{{ $usercontact->address ?? 'Add your location' }},
+                                                {{ $usercontact->country ?? null }}
                                             </li>
                                             <li class="contacts-block__item">
                                                 <a href="mailto:{{ Session::get('email') }}"><svg
@@ -172,12 +175,14 @@
                                                             d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                                                         </path>
                                                         <polyline points="22,6 12,13 2,6"></polyline>
-                                                    </svg>@if(strlen(Session::get('email')) > 17)
-                                                    {{ substr(Session::get('email'), 0, 17) }}<br>
-                                                    {{ substr(Session::get('email'), 17) }}
-                                                @else
-                                                    {{ Session::get('email') }}
-                                                @endif
+                                                    </svg>
+                                                    @if (strlen(Session::get('email')) > 17)
+                                                        {{ substr(Session::get('email'), 0, 17) }}
+                                                        <br>
+                                                        {{ substr(Session::get('email'), 17) }}
+                                                    @else
+                                                        {{ Session::get('email') }}
+                                                    @endif
 
                                                 </a>
                                             </li>
@@ -189,7 +194,7 @@
                                                     <path
                                                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                                     </path>
-                                                </svg> {{$usercontact->phone ?? "Add your phone no"}}
+                                                </svg> {{ $usercontact->phone ?? 'Add your phone no' }}
                                             </li>
                                             <li class="contacts-block__item">
                                                 <ul class="list-inline">
@@ -372,102 +377,63 @@
                         <div class="bio layout-spacing ">
                             <div class="widget-content widget-content-area">
                                 <h3 class="">Bio</h3>
-                                <p>{{$biodata->bio ?? 'No Bio-data. Please add your bio-data'}}</p>
+                                <p>{{ $biodata->bio ?? 'No Bio-data. Please add your bio-data' }}</p>
 
 
 
                                 <div class="bio-skill-box">
 
                                     <div class="row">
+                                        @foreach ($workplatform as $data)
+                                            <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
 
-                                        <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
+                                                <div class="d-flex b-skills">
+                                                    <div>
+                                                    </div>
+                                                    <div class="">
+                                                        <h5>{{$data->title}}</h5>
+                                                        <p>{{$data->description}}</p>
+                                                    </div>
+                                                </div>
 
-                                            <div class="d-flex b-skills">
-                                                <div>
-                                                </div>
-                                                <div class="">
-                                                    <h5>Sass Applications</h5>
-                                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse eu
-                                                        fugiat nulla pariatur.</p>
-                                                </div>
                                             </div>
+                                        @endforeach
 
-                                        </div>
 
-                                        <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5 ">
-
-                                            <div class="d-flex b-skills">
-                                                <div>
-                                                </div>
-                                                <div class="">
-                                                    <h5>Github Countributer</h5>
-                                                    <p>Ut enim ad minim veniam, quis nostrud exercitation aliquip ex ea
-                                                        commodo consequat.</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-12 col-xl-6 col-lg-12 mb-xl-0 mb-5 ">
-
-                                            <div class="d-flex b-skills">
-                                                <div>
-                                                </div>
-                                                <div class="">
-                                                    <h5>Photograhpy</h5>
-                                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                                        officia anim id est laborum.</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-12 col-xl-6 col-lg-12 mb-xl-0 mb-0 ">
-
-                                            <div class="d-flex b-skills">
-                                                <div>
-                                                </div>
-                                                <div class="">
-                                                    <h5>Mobile Apps</h5>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                        et dolore magna aliqua.</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
 
                                     </div>
 
                                 </div>
 
                             </div>
+
                         </div>
-
                     </div>
-                </div>
-            </div>
 
-
-
-
-            <div class="footer-wrapper">
-                <div class="footer-section f-section-1">
-                    <p class="">Copyright © <?php echo Date('Y'); ?> <a target="_blank"
-                            href="https://hancie-phago.com">Hancie Phago</a>, All rights reserved.</p>
-                </div>
-                <div class="footer-section f-section-2">
-                    <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-heart">
-                            <path
-                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                            </path>
-                        </svg></p>
                 </div>
             </div>
         </div>
-        <!--  END CONTENT AREA  -->
+
+
+
+
+        <div class="footer-wrapper">
+            <div class="footer-section f-section-1">
+                <p class="">Copyright © <?php echo Date('Y'); ?> <a target="_blank"
+                        href="https://hancie-phago.com">Hancie Phago</a>, All rights reserved.</p>
+            </div>
+            <div class="footer-section f-section-2">
+                <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></p>
+            </div>
+        </div>
+    </div>
+    <!--  END CONTENT AREA  -->
 
     </div>
     <!-- END MAIN CONTAINER -->
