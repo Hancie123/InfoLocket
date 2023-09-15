@@ -6,6 +6,7 @@ use App\Http\Resources\Profile\ProfileResource;
 use Illuminate\Http\Request;
 use App\Models\Bio;
 use App\Models\User;
+use App\Models\WorkPlatform;
 use Illuminate\Support\Facades\DB;
 
 class AccountSettingController extends Controller
@@ -21,10 +22,7 @@ class AccountSettingController extends Controller
         'user_contacts.location','users.id','user_contacts.website','user_contacts.usercontact_id','user_contacts.phone')->
         where('id',$id)->first();
 
-        $workplatform=User::join('work_platforms','work_platforms.user_id','=','users.id')
-        ->select('work_platforms.title','work_platforms.description',
-       'users.id','work_platforms.work_id')->
-        where('id',$id)->first();
+        $workplatform=WorkPlatform::where('user_id',$id)->get();
 
 
         // $resource=ProfileResource::collection($biodata)->toArray(request());
