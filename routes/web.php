@@ -44,6 +44,7 @@ Route::post('/admin/profile/update',[ProfileController::class,'update'])->middle
 Route::post('/admin/profile/contact/store',[ProfileController::class,'storecontact'])->middleware('checksession');
 Route::post('/admin/profile/contact/update',[ProfileController::class,'updateContact'])->middleware('checksession');
 Route::post('/admin/profile/workplatform/store',[WorkPlatformController::class,'store'])->middleware('checksession');
+Route::get('/admin/profile/workplatform/delete/{id}',[WorkPlatformController::class,'destroy'])->middleware('checksession');
 Route::get('/admin/profile/account-setting',[AccountSettingController::class,'accountsetting'])->middleware('checksession');
 
 Route::get('/storage',function(){

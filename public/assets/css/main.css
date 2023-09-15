@@ -1553,7 +1553,7 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
   letter-spacing: 1px; }
 
 .table > thead > tr > th {
-  color: #1b55e2;
+  color: #ffffff;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 1px;
@@ -1712,13 +1712,13 @@ table .badge-success, table .badge-primary, table .badge-warning, table .badge-d
   padding: 16px 12px;
   color: #fff; }
 
-/*  
+/*
     ==========================
-        Background Colors  
+        Background Colors
     ==========================
 */
-/*  
-    Default  
+/*
+    Default
 */
 .bg-primary {
   background-color: #1b55e2 !important;
@@ -1755,8 +1755,8 @@ table .badge-success, table .badge-primary, table .badge-warning, table .badge-d
   border-color: #3b3f5c;
   color: #fff; }
 
-/*  
-    Light Background  
+/*
+    Light Background
 */
 .bg-light-primary {
   background-color: #c2d5ff !important;
@@ -1793,7 +1793,7 @@ table .badge-success, table .badge-primary, table .badge-warning, table .badge-d
   border-color: #acb0c3;
   color: #fff; }
 
-/*  
+/*
     Progress Bar
 */
 .progress {

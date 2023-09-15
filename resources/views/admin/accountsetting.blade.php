@@ -9,6 +9,14 @@
     <link href="{{ url('assets/css/account-setting.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/dropify.min.css') }}">
     @include('layouts/adminheader')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+
+
+
 
 </head>
 
@@ -347,10 +355,105 @@
                                         </div>
                                         <button id="add-work-platforms" class="btn btn-primary">Save Work
                                             Platform</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#exampleModal">
+                                            Delete Work Platform
+                                        </button>
+
                                     </div>
                                 </form>
                             </div>
                             {{-- ---------------- Work Platform ------------------ --}}
+                            <!------------Work Platform Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Work Platform Data</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" class="feather feather-x">
+                                                    <line x1="18" y1="6" x2="6"
+                                                        y2="18"></line>
+                                                    <line x1="6" y1="6" x2="18"
+                                                        y2="18"></line>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="table-responsive">
+                                                <table id="table_data720" class="table table-striped rounded">
+                                                    <thead class="bg-primary text-white">
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Title</th>
+                                                            <th>Description</th>
+                                                            <th>Created At</th>
+                                                            <th>Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        @foreach ($workplatform as $data)
+                                                            <tr class="row-data-delete" id="row-data-delete{{$data->work_id}}">
+                                                                <td>
+                                                                    {{ $data->work_id }}</td>
+                                                                <td>{{ $data->title }}</td>
+                                                                <td>{{ $data->description }}</td>
+                                                                <td>{{ $data->created_at->diffForHumans() }}</td>
+                                                                <td>
+                                                                    <a class="btn btn-primary"
+                                                                        onclick="deleteWorkPlatform({{ $data->work_id }})">Delete</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                           
+                                            <button type="button" data-dismiss="modal" class="btn btn-primary">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------Work Platform Modal -->
+
+                            <script>
+                                function deleteWorkPlatform(id) {
+                                    $.ajax({
+                                        url: '/admin/profile/workplatform/delete/' + id,
+                                        type: 'GET', // Change to DELETE method
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
+                                        success: function(response) {
+                                            if (response.status === 'success') {
+                                                toastr.success(response.message);
+                                                $('#row-data-delete'+id ).remove();
+                                            } else {
+                                                toastr.error(response.message);
+                                            }
+                                        },
+                                        error: function(xhr, status, error) {
+                                            console.error(xhr.responseText);
+                                        }
+                                    });
+                                }
+                            </script>
+
+
+
 
 
 
@@ -1136,6 +1239,9 @@
         <script src="{{ url('assets/js/dropify.min.js') }}"></script>
         <script src="{{ url('assets/js/account-settings.js') }}"></script>
         <script src="{{ url('assets/js/jquery.blockUI.min.js') }}"></script>
+
+
+
 
 
 

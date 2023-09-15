@@ -46,15 +46,15 @@
     </div>
     <!--  END LOADER -->
 
-   @include('layouts/navbar')
+    @include('layouts/navbar')
 
     <!--  BEGIN NAVBAR  -->
     <div class="sub-header-container">
         <header class="header navbar navbar-expand-sm">
             <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" class="feather feather-menu">
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-menu">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -88,18 +88,19 @@
         <div class="overlay"></div>
         <div class="search-overlay"></div>
 
-       @include('layouts/sidebar')
+        @include('layouts/sidebar')
 
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
-            <h1>hy</h1>
 
+
+            
 
 
 
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright © <?php echo Date('Y')?> <a target="_blank"
+                    <p class="">Copyright © <?php echo Date('Y'); ?> <a target="_blank"
                             href="https://hancie-phago.com">Hancie Phago</a>, All rights reserved.</p>
                 </div>
                 <div class="footer-section f-section-2">
