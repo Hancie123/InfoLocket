@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountSettingController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
@@ -46,6 +47,10 @@ Route::post('/admin/profile/contact/update',[ProfileController::class,'updateCon
 Route::post('/admin/profile/workplatform/store',[WorkPlatformController::class,'store'])->middleware('checksession');
 Route::get('/admin/profile/workplatform/delete/{id}',[WorkPlatformController::class,'destroy'])->middleware('checksession');
 Route::get('/admin/profile/account-setting',[AccountSettingController::class,'accountsetting'])->middleware('checksession');
+
+Route::get('/admin/contacts',[ContactController::class,'index'])->middleware('checksession');
+Route::post('/admin/contacts',[ContactController::class,'store'])->middleware('checksession');
+
 
 Route::get('/storage',function(){
     Artisan::call("storage:link");
