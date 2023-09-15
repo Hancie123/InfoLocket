@@ -107,7 +107,6 @@ class ProfileController extends Controller
             'address' => 'required',
             'location' => 'required',
             'phone' => 'required',
-            'website' => 'required',
             'user_id' => 'required',
         ]);
         if ($request->status == 'store') {
