@@ -33,4 +33,20 @@ class WorkPlatformController extends Controller
             return back()->with('fail', $e->getMessage());
         }
     }
+
+
+
+
+    public function destroy($id)
+    {
+        $transaction = WorkPlatform::find($id);
+
+        if ($transaction) {
+            $transaction->delete();
+
+            return response()->json(['status' => 'success', 'message' => 'Workplatform record is deleted successfully.']);
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'Workplatform record not found.']);
+        }
+    }
 }
