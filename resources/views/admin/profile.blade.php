@@ -453,7 +453,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="{{ url('assets/js/apexcharts.min.js') }}"></script>
     <script src="{{ url('assets/js/dash_1.js') }}"></script>
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    
     @livewireScripts
 
 </body>

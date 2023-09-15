@@ -52,30 +52,11 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#accordionExample">
+                  
                     <li>
-                        <a href="apps_chat.html"> Chat </a>
+                        <a href="{{url('/admin/contacts')}}"> Contacts </a>
                     </li>
-                    <li>
-                        <a href="apps_mailbox.html"> Mailbox </a>
-                    </li>
-                    <li>
-                        <a href="apps_todoList.html"> Todo List </a>
-                    </li>
-                    <li>
-                        <a href="apps_notes.html"> Notes </a>
-                    </li>
-                    <li>
-                        <a href="apps_scrumboard.html">Scrumboard</a>
-                    </li>
-                    <li>
-                        <a href="apps_contacts.html"> Contacts </a>
-                    </li>
-                    <li>
-                        <a href="apps_invoice.html"> Invoice List </a>
-                    </li>
-                    <li>
-                        <a href="apps_calendar.html"> Calendar </a>
-                    </li>
+
                 </ul>
             </li>
 
