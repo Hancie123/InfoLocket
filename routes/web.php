@@ -48,7 +48,7 @@ Route::post('/admin/profile/workplatform/store',[WorkPlatformController::class,'
 Route::get('/admin/profile/workplatform/delete/{id}',[WorkPlatformController::class,'destroy'])->middleware('checksession');
 Route::get('/admin/profile/account-setting',[AccountSettingController::class,'accountsetting'])->middleware('checksession');
 
-Route::get('/admin/contacts',[ContactController::class,'index'])->middleware('checksession');
+Route::get('/admin/apps/contacts',[ContactController::class,'index'])->middleware('checksession');
 Route::post('/admin/contacts',[ContactController::class,'store'])->middleware('checksession');
 
 
