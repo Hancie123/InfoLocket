@@ -6,6 +6,7 @@ use App\Http\Resources\Profile\ProfileResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Bio;
+use App\Models\Education;
 use Illuminate\Support\Facades\DB;
 use App\Models\UserContact;
 
@@ -39,9 +40,9 @@ class ProfileController extends Controller
                 'work_platforms.work_id'
             )->where('id', $id)->get();
 
+        $education = Education::where('user_id', $id)->get();
 
-
-        return view('admin/profile', compact('user', 'biodata', 'usercontact','workplatform'));
+        return view('admin/profile', compact('user', 'biodata', 'usercontact', 'workplatform', 'education'));
     }
 
     public function store(Request $request)

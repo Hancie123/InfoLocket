@@ -25,3 +25,5 @@ Key Features of InfoLocket:
 InfoLocket is the go-to choice for individuals who demand a comprehensive, secure, and versatile information management solution. With Hancie Phago's commitment to constant improvement, you can look forward to regular updates and enhancements that keep InfoLocket at the forefront of digital organization tools.
 
 Experience the future of information management with InfoLocket - your one-stop solution for contact, password, to-do, email, expense, and note management, all in one convenient package.
+
+Thank You.

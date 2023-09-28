@@ -38,9 +38,6 @@ class Login extends Component
             return redirect('/')->with('fail','Incorrect username and password!');
         }
 
-
-
-
     }
     public function render()
     {
