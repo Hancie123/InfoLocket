@@ -249,44 +249,25 @@
                             </div>
                         </div>
 
+
                         <div class="education layout-spacing ">
                             <div class="widget-content widget-content-area">
                                 <h3 class="">Education</h3>
-                                <div class="timeline-alter">
-                                    <div class="item-timeline">
-                                        <div class="t-meta-date">
-                                            <p class="">04 Mar 2009</p>
-                                        </div>
-                                        <div class="t-dot">
-                                        </div>
-                                        <div class="t-text">
-                                            <p>Royal Collage of Art</p>
-                                            <p>Designer Illustrator</p>
-                                        </div>
-                                    </div>
-                                    <div class="item-timeline">
-                                        <div class="t-meta-date">
-                                            <p class="">25 Apr 2014</p>
-                                        </div>
-                                        <div class="t-dot">
-                                        </div>
-                                        <div class="t-text">
-                                            <p>Massachusetts Institute of Technology (MIT)</p>
-                                            <p>Designer Illustrator</p>
+                                @foreach ($education as $show)
+                                    <div class="timeline-alter">
+                                        <div class="item-timeline">
+                                            <div class="t-meta-date">
+                                                <p class="">{{ $show->start_date }}</p>
+                                            </div>
+                                            <div class="t-dot">
+                                            </div>
+                                            <div class="t-text">
+                                                <p>{{ $show->college_name }}</p>
+                                                <p>{{ $show->course }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="item-timeline">
-                                        <div class="t-meta-date">
-                                            <p class="">04 Apr 2018</p>
-                                        </div>
-                                        <div class="t-dot">
-                                        </div>
-                                        <div class="t-text">
-                                            <p>School of Art Institute of Chicago (SAIC)</p>
-                                            <p>Designer Illustrator</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
 
@@ -391,8 +372,8 @@
                                                     <div>
                                                     </div>
                                                     <div class="">
-                                                        <h5>{{$data->title}}</h5>
-                                                        <p>{{$data->description}}</p>
+                                                        <h5>{{ $data->title }}</h5>
+                                                        <p>{{ $data->description }}</p>
                                                     </div>
                                                 </div>
 
@@ -453,7 +434,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="{{ url('assets/js/apexcharts.min.js') }}"></script>
     <script src="{{ url('assets/js/dash_1.js') }}"></script>
-    
+
     @livewireScripts
 
 </body>
