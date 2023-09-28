@@ -67,8 +67,8 @@
 
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><span>Home</span></li>
+                                <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><span>Contact</span></li>
                             </ol>
                         </nav>
 
@@ -185,7 +185,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ url('/admin/contacts') }}" method="post">
+                                                    <form action="{{ url('/admin/contacts') }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" value="{{ Session()->get('id') }}"
                                                             name="user_id">

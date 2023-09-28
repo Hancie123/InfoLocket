@@ -41,19 +41,22 @@ Route::post('reset-password', [ResetPasswordController::class, 'submitResetPassw
 
 Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->middleware('checksession');
 
-Route::get('/admin/profile', [ProfileController::class, 'profile'])->middleware('checksession');
-Route::post('/admin/profile/store', [ProfileController::class, 'store'])->middleware('checksession');
-Route::post('/admin/profile/update', [ProfileController::class, 'update'])->middleware('checksession');
-Route::post('/admin/profile/contact/store', [ProfileController::class, 'storecontact'])->middleware('checksession');
-Route::post('/admin/profile/contact/update', [ProfileController::class, 'updateContact'])->middleware('checksession');
-Route::post('/admin/profile/workplatform/store', [WorkPlatformController::class, 'store'])->middleware('checksession');
-Route::get('/admin/profile/workplatform/delete/{id}', [WorkPlatformController::class, 'destroy'])->middleware('checksession');
-Route::get('/admin/profile/account-setting', [AccountSettingController::class, 'accountsetting'])->middleware('checksession');
 
-Route::get('/admin/contacts', [ContactController::class, 'index'])->middleware('checksession');
+Route::group(['prefix'=>'admin/profile'], function () {
+    Route::get('/', [ProfileController::class, 'profile'])->middleware('checksession');
+    Route::post('/store', [ProfileController::class, 'store'])->middleware('checksession');
+    Route::post('/update', [ProfileController::class, 'update'])->middleware('checksession');
+    Route::post('/contact/store', [ProfileController::class, 'storecontact'])->middleware('checksession');
+    Route::post('/contact/update', [ProfileController::class, 'updateContact'])->middleware('checksession');
+    Route::post('/workplatform/store', [WorkPlatformController::class, 'store'])->middleware('checksession');
+    Route::get('/workplatform/delete/{id}', [WorkPlatformController::class, 'destroy'])->middleware('checksession');
+    Route::get('/account-setting', [AccountSettingController::class, 'accountsetting'])->middleware('checksession');
+});
+
+
+
+Route::get('/admin/apps/contacts', [ContactController::class, 'index'])->middleware('checksession');
 Route::post('/admin/contacts', [ContactController::class, 'store'])->middleware('checksession');
-
-Route::post('/admin/profile/account-setting/education', [EducationController::class, 'store'])->middleware('checksession');
 
 
 Route::get('/storage', function () {
