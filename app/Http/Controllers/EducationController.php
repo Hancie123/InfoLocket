@@ -47,7 +47,7 @@ class EducationController extends Controller
                 return back()->with('success', 'Your Education Details are Added Successfully!');
             }
         } catch (\Exception $e) {
-            return back()->with('fail',$e->getMessage());
+            return back()->with('fail', $e->getMessage());
         }
     }
 
