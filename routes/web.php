@@ -59,6 +59,8 @@ Route::get('/admin/apps/contacts', [ContactController::class, 'index'])->middlew
 Route::post('/admin/contacts', [ContactController::class, 'store'])->middleware('checksession');
 
 
+Route::post('/admin/profile/account-setting/education', [EducationController::class, 'store'])->middleware('checksession');
+
 Route::get('/storage', function () {
     Artisan::call("storage:link");
 });
