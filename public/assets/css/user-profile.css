@@ -16,7 +16,7 @@
 .layout-spacing {
   padding-bottom: 25px; }
 
-/* 
+/*
 ===================
     User Profile
 ===================
@@ -102,7 +102,7 @@
         width: 19px;
         align-self: center; }
 
-/* 
+/*
 ==============
     Skills
 ==============
@@ -130,15 +130,14 @@
     color: #515365;
     font-weight: 600; }
   .skills .widget-content-area .progress {
-    height: 20px;
+    height: 15px;
     box-shadow: 1px 3px 20px 3px #f1f2f3;
     margin-bottom: 31px; }
     .skills .widget-content-area .progress .progress-bar {
-      background-color: #1b55e2;
-      background: linear-gradient(to right, #0081ff 0%, #0045ff 100%);
+      background: linear-gradient(to right, #0081ff 0%, #42eb97 100%);
       border-radius: 1rem;
       box-shadow: 0 2px 4px rgba(0, 69, 255, 0.15), 0 8px 16px rgba(0, 69, 255, 0.2);
-      font-size: 12px;
+      font-size: 10px;
       letter-spacing: 1px;
       font-weight: 100; }
     .skills .widget-content-area .progress .progress-title {
@@ -148,7 +147,7 @@
       .skills .widget-content-area .progress .progress-title span {
         align-self: center; }
 
-/* 
+/*
 ==============
     Bio
 ==============
@@ -198,7 +197,7 @@
     .bio .widget-content-area .b-skills p {
       font-size: 13px; }
 
-/* 
+/*
 ================
     Education
 ================
@@ -293,7 +292,7 @@
     .education .widget-content-area .timeline-alter .item-timeline .t-meta-date p, .education .widget-content-area .timeline-alter .item-timeline .t-usr-txt p {
       margin: 0 auto; } }
 
-/* 
+/*
 =======================
     Work Experience
 =======================
