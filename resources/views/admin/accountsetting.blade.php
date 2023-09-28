@@ -839,10 +839,7 @@
                                     <div class="info">
                                         <h5 class="">Education</h5>
                                         <div class="row">
-                                            <div class="col-md-12 text-right mb-5">
-                                                <button id="add-education" class="btn btn-primary"
-                                                    type="submit">Add</button>
-                                            </div>
+
                                             <div class="col-md-11 mx-auto">
 
                                                 <div class="edu-section">
@@ -851,11 +848,11 @@
                                                             <div class="form-group">
                                                                 <label for="college_name">Enter Your Collage
                                                                     Name</label>
-                                                                <input type="text" class="form-control mb-4"
+                                                                <input type="text" class="form-control"
                                                                     id="college_name" name="college_name"
                                                                     placeholder="Add your college here">
                                                                 @error('college_name')
-                                                                    <span class="alert alert-danger">
+                                                                    <span class="text-danger">
                                                                         {{ $message }}
                                                                     </span>
                                                                 @enderror
@@ -863,33 +860,42 @@
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="row">
-                                                                <div class="col-md-6 mb-4">
+                                                                <div class="col-md-6">
                                                                     <label>Started From</label>
-                                                                    <input type="date" class="form-control mb-4"
+                                                                    <input type="date" class="form-control "
                                                                         id="start_date" name="start_date">
                                                                     @error('start_date')
-                                                                        <span class="alert alert-danger">
+                                                                        <span class="text-danger">
                                                                             {{ $message }}
                                                                         </span>
                                                                     @enderror
                                                                 </div>
-                                                                <div class="col-md-6 mb-4">
+                                                                <div class="col-md-6">
                                                                     <label>Ended In</label>
-                                                                    <input type="date" class="form-control mb-4"
+                                                                    <input type="date" class="form-control "
                                                                         id="end_date" name="end_date">
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="col-md-12">
+                                                            <br>
                                                             <div class="form-group">
                                                                 <label for="course">Enter Your Course</label>
-                                                                <input type="text" class="form-control mb-4"
+                                                                <input type="text" class="form-control"
                                                                     id="course" name="course"
                                                                     placeholder="Add your course here">
                                                             </div>
                                                         </div>
 
+                                                        <div class="col-md-12">
+                                                            <button id="add-education" class="btn btn-primary"
+                                                                type="submit">Add Records</button>
+                                                        </div>
+
                                                     </div>
+
+
 
                                                 </div>
 
@@ -1098,43 +1104,16 @@
 
 
 
-                <div class="footer-wrapper">
-                    <div class="footer-section f-section-1">
-                        <p class="">Copyright © <?php echo Date('Y'); ?> <a target="_blank"
-                                href="https://hancie-phago.com">Hancie Phago</a>, All rights reserved.</p>
-                    </div>
-                    <div class="footer-section f-section-2">
-                        <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-heart">
-                                <path
-                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                </path>
-                            </svg></p>
-                    </div>
-                </div>
+                @include('layouts/adminfooter')
             </div>
-            <!--  END CONTENT AREA  -->
-
         </div>
-        <!-- END MAIN CONTAINER -->
-        <script src="{{ url('assets/js/jquery-3.1.1.min.js') }}"></script>
-        <script src="{{ url('assets/js/popper.min.js') }}"></script>
-        <script src="{{ url('assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ url('assets/js/perfect-scrollbar.min.js') }}"></script>
-        <script src="{{ url('assets/js/app.js') }}"></script>
-        <script>
-            $(document).ready(function() {
-                App.init();
-            });
-        </script>
-        <script src="{{ url('assets/js/custom.js') }}"></script>
-        <script src="{{ url('assets/js/apexcharts.min.js') }}"></script>
-        <script src="{{ url('assets/js/dash_1.js') }}"></script>
-        <script src="{{ url('assets/js/dropify.min.js') }}"></script>
-        <script src="{{ url('assets/js/account-settings.js') }}"></script>
-        <script src="{{ url('assets/js/jquery.blockUI.min.js') }}"></script>
+        <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+
+
 
 
 

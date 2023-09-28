@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -12,7 +13,9 @@ class ContactController extends Controller
     public function index(){
         $id = Session()->get('id');
         $contact=Contact::where('user_id', $id)->paginate(4);
-        return view('admin/contacts',compact('contact'));
+        $user = User::with('media')->where('id', $id)->first();
+
+        return view('admin/contacts',compact('contact','user'));
     }
 
     public function store(Request $request){

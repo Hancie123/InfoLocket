@@ -23,9 +23,10 @@ class AccountSettingController extends Controller
         where('id',$id)->first();
 
         $workplatform=WorkPlatform::where('user_id',$id)->get();
+        $user = User::with('media')->where('id', $id)->first();
 
 
         // $resource=ProfileResource::collection($biodata)->toArray(request());
-        return view('admin/accountsetting',compact('biodata','usercontact','workplatform'));
+        return view('admin/accountsetting',compact('biodata','usercontact','workplatform','user'));
     }
 }
