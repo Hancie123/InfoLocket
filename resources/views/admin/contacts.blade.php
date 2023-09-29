@@ -374,6 +374,7 @@
 
 
             @include('layouts/adminfooter')
+            <script src="{{ url('assets/js/contact.js') }}"></script>
 
         </div>
         <!--  END CONTENT AREA  -->
