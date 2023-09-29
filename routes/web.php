@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WorkExperienceController;
 use App\Http\Controllers\WorkPlatformController;
 use App\Models\Education;
 use Illuminate\Support\Facades\Artisan;
@@ -60,6 +61,8 @@ Route::post('/admin/contacts', [ContactController::class, 'store'])->middleware(
 
 
 Route::post('/admin/profile/account-setting/education', [EducationController::class, 'store'])->middleware('checksession');
+
+Route::post('/admin/profile/account-setting/work-experience',[WorkExperienceController::class,'store'])->middleware('checksession');
 
 Route::get('/storage', function () {
     Artisan::call("storage:link");

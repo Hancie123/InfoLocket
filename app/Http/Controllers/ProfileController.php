@@ -9,6 +9,7 @@ use App\Models\Bio;
 use App\Models\Education;
 use Illuminate\Support\Facades\DB;
 use App\Models\UserContact;
+use App\Models\WorkExperience;
 
 class ProfileController extends Controller
 {
@@ -42,7 +43,9 @@ class ProfileController extends Controller
 
         $education = Education::where('user_id', $id)->get();
 
-        return view('admin/profile', compact('user', 'biodata', 'usercontact', 'workplatform', 'education'));
+        $workExperience = WorkExperience::where('user_id', $id)->get();
+
+        return view('admin/profile', compact('user', 'biodata', 'usercontact', 'workplatform', 'education', 'workExperience'));
     }
 
     public function store(Request $request)
