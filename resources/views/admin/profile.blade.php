@@ -254,12 +254,12 @@
                             <div class="widget-content widget-content-area">
                                 <h3 class="">Education</h3>
 
-                                @if ($education->count()==null)
-                                <p class="text-center">No education</p>
+                                @if ($education->count() == null)
+                                    <p class="text-center">No Education Inputted</p>
                                 @endif
 
-                                    <div class="timeline-alter">
-                                        @foreach ($education as $show)
+                                <div class="timeline-alter">
+                                    @foreach ($education as $show)
                                         <div class="item-timeline">
                                             <div class="t-meta-date">
                                                 <p class="">{{ $show->start_date }}</p>
@@ -271,8 +271,8 @@
                                                 <p>{{ $show->course }}</p>
                                             </div>
                                         </div>
-                                        @endforeach
-                                    </div>
+                                    @endforeach
+                                </div>
 
                             </div>
                         </div>
@@ -283,43 +283,24 @@
 
                                 <h3 class="">Work Experience</h3>
 
+                                @if ($workExperience->count() == null)
+                                    <p class="text-center">No Work Experience Inputted</p>
+                                @endif
+
                                 <div class="timeline-alter">
-
-                                    <div class="item-timeline">
-                                        <div class="t-meta-date">
-                                            <p class="">04 Mar 2009</p>
+                                    @foreach ($workExperience as $show)
+                                        <div class="item-timeline">
+                                            <div class="t-meta-date">
+                                                <p class="">{{ $show->started_from }}</p>
+                                            </div>
+                                            <div class="t-dot">
+                                            </div>
+                                            <div class="t-text">
+                                                <p>{{ $show->name }}</p>
+                                                <p>{{ $show->title }}</p>
+                                            </div>
                                         </div>
-                                        <div class="t-dot">
-                                        </div>
-                                        <div class="t-text">
-                                            <p>Netfilx Inc.</p>
-                                            <p>Designer Illustrator</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-timeline">
-                                        <div class="t-meta-date">
-                                            <p class="">25 Apr 2014</p>
-                                        </div>
-                                        <div class="t-dot">
-                                        </div>
-                                        <div class="t-text">
-                                            <p>Google Inc.</p>
-                                            <p>Designer Illustrator</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-timeline">
-                                        <div class="t-meta-date">
-                                            <p class="">04 Apr 2018</p>
-                                        </div>
-                                        <div class="t-dot">
-                                        </div>
-                                        <div class="t-text">
-                                            <p>Design Reset Inc.</p>
-                                            <p>Designer Illustrator</p>
-                                        </div>
-                                    </div>
+                                    @endforeach
 
                                 </div>
                             </div>

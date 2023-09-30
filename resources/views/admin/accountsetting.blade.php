@@ -877,7 +877,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-md-12">
                                                             <br>
                                                             <div class="form-group">
@@ -885,20 +884,19 @@
                                                                 <input type="text" class="form-control"
                                                                     id="course" name="course"
                                                                     placeholder="Add your course here">
+                                                                @error('course')
+                                                                    <span class="text-danger">
+                                                                        {{ $message }}
+                                                                    </span>
+                                                                @enderror
                                                             </div>
                                                         </div>
-
                                                         <div class="col-md-12">
                                                             <button id="add-education" class="btn btn-primary"
                                                                 type="submit">Add Records</button>
                                                         </div>
-
                                                     </div>
-
-
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -906,202 +904,96 @@
                             </div>
 
                             <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                <form id="work-experience" class="section work-experience">
+                                <form id="work-experience" class="section work-experience"
+                                    action="{{ url('/admin/profile/account-setting/work-experience') }}"
+                                    method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{ Session::get('id') }}" name="user_id" />
                                     <div class="info">
                                         <h5 class="">Work Experience</h5>
                                         <div class="row">
-                                            <div class="col-md-12 text-right mb-5">
-                                                <button id="add-work-exp" class="btn btn-primary">Add</button>
-                                            </div>
+
                                             <div class="col-md-11 mx-auto">
 
                                                 <div class="work-section">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                                <label for="degree2">Company Name</label>
-                                                                <input type="text" class="form-control mb-4"
-                                                                    id="degree2" placeholder="Add your work here"
-                                                                    value="Netfilx Inc.">
+                                                                <label for="company_name">Company Name</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="company_name" name="company_name"
+                                                                    placeholder="Add your Company Name here">
+                                                                @error('company_name')
+                                                                    <span class="text-danger">
+                                                                        {{ $message }}
+                                                                    </span>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="degree3">Job Tilte</label>
-                                                                        <input type="text"
-                                                                            class="form-control mb-4" id="degree3"
-                                                                            placeholder="Add your work here"
-                                                                            value="">
+                                                                        <label for="job_title">Job Tilte</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="job_title" name="job_title"
+                                                                            placeholder="Add your Job Title here">
+                                                                        @error('job_title')
+                                                                            <span class="text-danger">
+                                                                                {{ $message }}
+                                                                            </span>
+                                                                        @enderror
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <label for="degree4">Location</label>
-                                                                        <input type="text"
-                                                                            class="form-control mb-4" id="degree4"
-                                                                            placeholder="Add your work here"
-                                                                            value="">
+                                                                        <label for="job_location">Location</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="job_location" name="job_location"
+                                                                            placeholder="Add your work location here">
+                                                                        @error('job_location')
+                                                                            <span class="text-danger">
+                                                                                {{ $message }}
+                                                                            </span>
+                                                                        @enderror
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-md-12">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Starting From</label>
-
-                                                                        <div class="row">
-
-                                                                            <div class="col-md-6">
-                                                                                <select class="form-control mb-4"
-                                                                                    id="wes-from1">
-                                                                                    <option>Month</option>
-                                                                                    <option>Jan</option>
-                                                                                    <option>Feb</option>
-                                                                                    <option>Mar</option>
-                                                                                    <option>Apr</option>
-                                                                                    <option>May</option>
-                                                                                    <option>Jun</option>
-                                                                                    <option>Jul</option>
-                                                                                    <option>Aug</option>
-                                                                                    <option>Sep</option>
-                                                                                    <option>Oct</option>
-                                                                                    <option>Nov</option>
-                                                                                    <option>Dec</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="col-md-6">
-                                                                                <select class="form-control mb-4"
-                                                                                    id="wes-from2">
-                                                                                    <option>Year</option>
-                                                                                    <option>2020</option>
-                                                                                    <option>2019</option>
-                                                                                    <option>2018</option>
-                                                                                    <option>2017</option>
-                                                                                    <option>2016</option>
-                                                                                    <option>2015</option>
-                                                                                    <option>2014</option>
-                                                                                    <option>2013</option>
-                                                                                    <option>2012</option>
-                                                                                    <option>2011</option>
-                                                                                    <option>2010</option>
-                                                                                    <option>2009</option>
-                                                                                    <option>2008</option>
-                                                                                    <option>2007</option>
-                                                                                    <option>2006</option>
-                                                                                    <option>2005</option>
-                                                                                    <option>2004</option>
-                                                                                    <option>2003</option>
-                                                                                    <option>2002</option>
-                                                                                    <option>2001</option>
-                                                                                    <option>2000</option>
-                                                                                    <option>1999</option>
-                                                                                    <option>1998</option>
-                                                                                    <option>1997</option>
-                                                                                    <option>1996</option>
-                                                                                    <option>1995</option>
-                                                                                    <option>1994</option>
-                                                                                    <option>1993</option>
-                                                                                    <option>1992</option>
-                                                                                    <option>1991</option>
-                                                                                    <option>1990</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                    </div>
+                                                                    <label>Started From</label>
+                                                                    <input type="date" class="form-control "
+                                                                        id="started_from" name="started_from">
+                                                                    @error('started_from')
+                                                                        <span class="text-danger">
+                                                                            {{ $message }}
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Ending In</label>
-
-                                                                        <div class="row">
-
-                                                                            <div class="col-md-6 mb-4">
-                                                                                <select class="form-control"
-                                                                                    id="eiend-in1">
-                                                                                    <option>Month</option>
-                                                                                    <option>Jan</option>
-                                                                                    <option>Feb</option>
-                                                                                    <option>Mar</option>
-                                                                                    <option>Apr</option>
-                                                                                    <option>May</option>
-                                                                                    <option>Jun</option>
-                                                                                    <option>Jul</option>
-                                                                                    <option>Aug</option>
-                                                                                    <option>Sep</option>
-                                                                                    <option>Oct</option>
-                                                                                    <option>Nov</option>
-                                                                                    <option>Dec</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="col-md-6">
-                                                                                <select class="form-control input-sm"
-                                                                                    id="eiend-in2">
-                                                                                    <option>Year</option>
-                                                                                    <option>2020</option>
-                                                                                    <option>2019</option>
-                                                                                    <option>2018</option>
-                                                                                    <option>2017</option>
-                                                                                    <option>2016</option>
-                                                                                    <option>2015</option>
-                                                                                    <option>2014</option>
-                                                                                    <option>2013</option>
-                                                                                    <option>2012</option>
-                                                                                    <option>2011</option>
-                                                                                    <option>2010</option>
-                                                                                    <option>2009</option>
-                                                                                    <option>2008</option>
-                                                                                    <option>2007</option>
-                                                                                    <option>2006</option>
-                                                                                    <option>2005</option>
-                                                                                    <option>2004</option>
-                                                                                    <option>2003</option>
-                                                                                    <option>2002</option>
-                                                                                    <option>2001</option>
-                                                                                    <option>2000</option>
-                                                                                    <option>1999</option>
-                                                                                    <option>1998</option>
-                                                                                    <option>1997</option>
-                                                                                    <option>1996</option>
-                                                                                    <option>1995</option>
-                                                                                    <option>1994</option>
-                                                                                    <option>1993</option>
-                                                                                    <option>1992</option>
-                                                                                    <option>1991</option>
-                                                                                    <option>1990</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    <label>Ended In</label>
+                                                                    <input type="date" class="form-control "
+                                                                        id="ended_in" name="ended_in">
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-md-12">
-                                                            <textarea class="form-control" placeholder="Description" rows="10"></textarea>
+                                                            <br>
+                                                            <button id="add-work-exp" class="btn btn-primary">Add
+                                                                Work</button>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
-
 
 
                 @include('layouts/adminfooter')
