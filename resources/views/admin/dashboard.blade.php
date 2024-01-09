@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>InfoLocket</title>
     @include('layouts.header')
 </head>
 
@@ -34,15 +34,14 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="card-body px-25">
-                                                <h1 class="banner-feature__heading color-dark">Hey Danial! Welcome to
+                                                <h1 class="banner-feature__heading color-dark">Hey
+                                                    {{ Auth()->user()->name }}! Welcome to
                                                     the Dashboard
                                                 </h1>
-                                                <p class="banner-feature__para color-dark">There are many variations of
-                                                    passages of
-                                                    Lorem Ipsum available,<br>
-                                                    ut the majority have suffered passages of Lorem Ipsum available
-                                                    alteration in
-                                                    some form
+                                                <p class="banner-feature__para color-dark">We are delighted to have you
+                                                    on board.<br>
+                                                    As you navigate through, feel free to explore the various
+                                                    functionalities tailored to meet your needs.
                                                 </p>
                                                 <div class="d-flex justify-content-sm-start justify-content-center">
                                                     <button

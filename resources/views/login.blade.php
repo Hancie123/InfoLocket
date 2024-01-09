@@ -9,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/css/plugin.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('assets/img/infolocket-favicon-color.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/img/infolocket-favicon-color.png') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
+    @livewireStyles()
 </head>
 
 <body>
@@ -20,28 +21,32 @@
                 <div class="row justify-content-center">
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
                         <br><br>
-                            <div class="edit-profile__logos mt-5">
-                                <a href="index.html">
-                                    <img class="dark"
-                                        src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}"
-                                        alt>
-                                    <img class="light"
-                                        src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}"
-                                        alt>
-                                </a>
-                            </div>
-                            <div class="card border-0">
-                                <div class="card-header">
-                                    <div class="edit-profile__title">
-                                        <h6>Sign in InfoLocket</h6>
-                                    </div>
+                        <div class="edit-profile__logos mt-5">
+                            <a href="index.html">
+                                <img class="dark"
+                                    src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}" alt>
+                                <img class="light"
+                                    src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}" alt>
+                            </a>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-header">
+                                <div class="edit-profile__title">
+                                    <h6>Sign in InfoLocket</h6>
                                 </div>
-                                <div class="card-body">
-                                    <div class="edit-profile__body">
+                            </div>
+                            <div class="card-body">
+                                <div class="edit-profile__body">
+
+                                    <form action="{{ url('login') }}" method="post">
+                                        @csrf
                                         <div class="form-group mb-25">
-                                            <label for="username">Username or Email Address</label>
-                                            <input type="text" class="form-control" id="username"
+                                            <label for="username">Email Address</label>
+                                            <input type="text" class="form-control" name="email" id="username"
                                                 placeholder="name@example.com">
+                                            @error('email')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="form-group mb-15">
                                             <label for="password-field">password</label>
@@ -51,6 +56,9 @@
                                                 <div
                                                     class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2">
                                                 </div>
+                                                @error('password')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="admin-condition">
@@ -60,28 +68,29 @@
                                                     <span class="checkbox-text">Keep me logged in</span>
                                                 </label>
                                             </div>
-                                            <a href="{{url('forgot-password')}}">forget password?</a>
+                                            <a href="{{ url('forgot-password') }}">forget password?</a>
                                         </div>
                                         <div
                                             class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
-                                            <button
+                                            <button type="submit"
                                                 class="btn btn-primary btn-default w-100 btn-squared text-capitalize lh-normal px-50 signIn-createBtn ">
                                                 sign in
                                             </button>
                                         </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="admin-topbar">
-                                    <p class="mb-0">
-                                        Don't have an account?
-                                        <a href="{{url('register')}}" class="color-primary">
-                                            Sign up
-                                        </a>
-                                    </p>
+                                    </form>
                                 </div>
                             </div>
-                       
+
+                            <div class="admin-topbar">
+                                <p class="mb-0">
+                                    Don't have an account?
+                                    <a href="{{ url('register') }}" class="color-primary">
+                                        Sign up
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -109,6 +118,7 @@
 
     <script src="{{ url('assets/js/plugins.min.js') }}"></script>
     <script src="{{ url('assets/js/script.min.js') }}"></script>
+    @livewireScripts()
 
 </body>
 

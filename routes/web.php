@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/', function () {
     return view('login');
 });
+Route::post('login',[LoginController::class,'login']);
 
 Route::get('forgot-password',[ResetPasswordController::class, 'forgot_password']);
 
