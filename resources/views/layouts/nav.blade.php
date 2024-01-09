@@ -38,7 +38,7 @@
                        <div class="dropdown-parent-wrapper">
                            <div class="dropdown-wrapper dropdown-wrapper--small">
                                <a href><img src="{{url('assets/img/flag.png')}}" alt> English</a>
-                               <a href><img src="img/ger.png" alt> Nepali</a>
+                               <a href><img src="{{url('assets/img/nepali-flag.png')}}" alt> Nepali</a>
                               
                            </div>
                        </div>
@@ -47,7 +47,7 @@
 
                <li class="nav-author">
                    <div class="dropdown-custom">
-                       <a href="javascript:;" class="nav-item-toggle"><img src="img/author-nav.jpg" alt
+                       <a href="javascript:;" class="nav-item-toggle"><img src="{{url('assets/img/flag.png')}}" alt
                                class="rounded-circle">
                            <span class="nav-item__title">Danial<i class="las la-angle-down nav-item__arrow"></i></span>
                        </a>
@@ -55,7 +55,7 @@
                            <div class="dropdown-wrapper">
                                <div class="nav-author__info">
                                    <div class="author-img">
-                                       <img src="img/author-nav.jpg" alt class="rounded-circle">
+                                       <img src="{{url('assets/img/flag.png')}}" alt class="rounded-circle">
                                    </div>
                                    <div>
                                        <h6>Rabbi Islam Rony</h6>
