@@ -19,7 +19,7 @@
     </div>
     <div class="mobile-author-actions"></div>
     <header class="header-top">
-     @include('layouts.nav')
+        @include('layouts.nav')
     </header>
     <main class="main-content">
         @include('layouts.sidebar')
@@ -72,53 +72,10 @@
                 </div>
             </div>
         </div>
-        <footer class="footer-wrapper">
-            <div class="footer-wrapper__inside">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="footer-copyright">
-                                <p><span>© 2023</span><a href="#">Sovware</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="footer-menu text-end">
-                                <ul>
-                                    <li>
-                                        <a href="#">About</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Team</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </main>
-    <div id="overlayer">
-        <div class="loader-overlay">
-            <div class="dm-spin-dots spin-lg">
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-                <span class="spin-dot badge-dot dot-primary"></span>
-            </div>
-        </div>
-    </div>
-    <div class="overlay-dark-sidebar"></div>
-    <div class="customizer-overlay"></div>
-    
 
-    <script src="{{ url('assets/js/plugins.min.js') }}"></script>
-    <script src="{{ url('assets/js/script.min.js') }}"></script>
+    @include('layouts.footer')
 
 </body>
 
