@@ -11,6 +11,6 @@ class DashboardController extends Controller
         $id=Session()->get('id');
         $user = User::with('media')->where('id', $id)->first();
 
-        return view('admin/dashboard',compact('user'));
+        return view('admin/dashboard');
     }
 }

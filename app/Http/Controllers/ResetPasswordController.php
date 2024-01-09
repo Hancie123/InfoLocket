@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 class ResetPasswordController extends Controller
 {
     public function forgot_password(){
-        return view('recovery');
+        return view('forgot_password');
     }
 
     public function submitForgetPasswordForm(Request $request)
