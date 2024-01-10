@@ -27,11 +27,17 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
     return view('login');
+})->name('login');
+
+Route::post('login', [LoginController::class, 'login']);
+
+Route::get('forgot-password', [ResetPasswordController::class, 'forgot_password']);
+
+Route::get('register', [UserController::class, 'register']);
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
+
+    Route::get('admin/profile',[ProfileController::class,'profile']);
 });
-Route::post('login',[LoginController::class,'login']);
-
-Route::get('forgot-password',[ResetPasswordController::class, 'forgot_password']);
-
-Route::get('register',[UserController::class,'register']);
-
-Route::get('admin/dashboard',[DashboardController::class, 'dashboard']);
