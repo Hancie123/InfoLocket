@@ -54,10 +54,11 @@
                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                                         </p>
                                         <div class="d-flex justify-content-start">
-                                            <button class="btn btn-primary btn-default btn-squared btn-shadow-primary"
+                                            <a href="{{ url('admin/ticket/create') }}"
+                                                class="btn btn-primary btn-default btn-squared btn-shadow-primary"
                                                 type="button">Create
                                                 Support Ticket
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

@@ -5,15 +5,12 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\WorkExperienceController;
-use App\Http\Controllers\WorkPlatformController;
-use App\Models\Education;
-use Illuminate\Support\Facades\Artisan;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +40,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/profile',[ProfileController::class,'profile']);
 
     Route::get('admin/support',[SupportController::class,'index']);
+    Route::get('admin/ticket/create', [TicketController::class, 'index']);
 });

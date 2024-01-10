@@ -1,11 +1,11 @@
    <nav class="navbar navbar-light">
        <div class="navbar-left">
            <div class="logo-area">
-               <a class="navbar-brand" href="index.html">
+               <a class="navbar-brand" href="{{url('admin/dashboard')}}">
                    <img class="dark" src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}" alt>
                    <img class="light" src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}" alt>
                </a>
-               <a href="#" class="sidebar-toggle">
+               <a href="{{url('admin/dashboard')}}" class="sidebar-toggle">
                    <img class="svg" src="img/svg/align-center-alt.svg" alt="img"></a>
            </div>
 
