@@ -15,7 +15,8 @@
         "laravolt/avatar": "^5.0",
         "livewire/livewire": "^3.0",
         "php-flasher/flasher-laravel": "^1.15",
-        "spatie/laravel-medialibrary": "^10.0.0"
+        "spatie/laravel-medialibrary": "^10.0.0",
+        "unicodeveloper/laravel-password": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

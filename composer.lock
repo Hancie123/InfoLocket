@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dba221e35685ff2fcd88aff8438cac03",
+    "content-hash": "1036c1adea65ec40b12b62fd8eb59b65",
     "packages": [
         {
             "name": "brick/math",
@@ -7490,6 +7490,70 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
+        },
+        {
+            "name": "unicodeveloper/laravel-password",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicodeveloper/laravel-password.git",
+                "reference": "806e345ae992e0adf38c4cfa32063d7d7c9d189a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicodeveloper/laravel-password/zipball/806e345ae992e0adf38c4cfa32063d7d7c9d189a",
+                "reference": "806e345ae992e0adf38c4cfa32063d7d7c9d189a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.0 || ~8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~8.0 || ~9.0",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Unicodeveloper\\DumbPassword\\DumbPasswordServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Unicodeveloper\\DumbPassword\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": ":Prosper Otemuyiwa",
+                    "email": "prosperotemuyiwa@gmail.com",
+                    "homepage": "http://goodheads.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Protect your users from entering dumb and common passwords",
+            "homepage": "https://github.com/unicodeveloper/laravel-password",
+            "keywords": [
+                "dumb",
+                "passwords",
+                "security",
+                "unicodeveloper"
+            ],
+            "support": {
+                "issues": "https://github.com/unicodeveloper/laravel-password/issues",
+                "source": "https://github.com/unicodeveloper/laravel-password/tree/1.0.4"
+            },
+            "time": "2020-12-30T04:54:38+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

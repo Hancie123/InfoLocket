@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,8 @@ class LoginController extends Controller
         return redirect('/')->with('success','You have logout successfully');
     }
 
-    public function login(Request $request){
+    public function login(LoginRequest $request){
+        
         $confidential=$request->only('email','password');
         try {
             if (Auth::attempt($confidential)) {

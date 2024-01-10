@@ -17,6 +17,9 @@
                             <li>
                                 <a href="#">Team</a>
                             </li>
+                             <li>
+                                <a href="{{url('admin/terms-and-conditions')}}">Terms and Conditions</a>
+                            </li>
                             <li>
                                 <a href="#">Contact</a>
                             </li>
