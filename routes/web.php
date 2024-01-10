@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkExperienceController;
 use App\Http\Controllers\WorkPlatformController;
@@ -40,4 +41,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
 
     Route::get('admin/profile',[ProfileController::class,'profile']);
+
+    Route::get('admin/support',[SupportController::class,'index']);
 });

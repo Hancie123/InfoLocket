@@ -73,16 +73,16 @@
                                                <i class="uil uil-setting"></i>
                                                Settings</a>
                                        </li>
-                                       <li>
+                                       {{-- <li>
                                            <a href>
                                                <i class="uil uil-key-skeleton"></i> Billing</a>
-                                       </li>
+                                       </li> --}}
                                        <li>
                                            <a href>
                                                <i class="uil uil-users-alt"></i> Activity</a>
                                        </li>
                                        <li>
-                                           <a href>
+                                           <a href="{{url('admin/support')}}">
                                                <i class="uil uil-bell"></i> Help</a>
                                        </li>
                                    </ul>
