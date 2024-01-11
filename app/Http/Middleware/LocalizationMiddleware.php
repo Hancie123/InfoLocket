@@ -29,9 +29,7 @@ class LocalizationMiddleware
     {
 
         $user = Localization::where('user_id', Session::get('user_id'))->first();
-        // dd($user->lang);
-
-        // Check if the user is authenticated
+       
         if ($user) {
             App::setLocale($user->lang);
            
