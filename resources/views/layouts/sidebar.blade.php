@@ -5,7 +5,7 @@
                  <li class="active">
                      <a href="{{url('admin/dashboard')}}" class="active">
                          <span class="nav-icon uil uil-create-dashboard"></span>
-                         <span class="menu-text">Dashboard</span>
+                         <span class="menu-text">@lang('translation.dashboard_btn')</span>
 
                      </a>
 

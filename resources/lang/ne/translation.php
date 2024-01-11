@@ -8,6 +8,10 @@ return [
     'learn_more_btn' => 'थप जान्नुहोस्',
 
 
+    //Side Nav
+    'dashboard_btn' => 'ड्यासबोर्ड',
+
+
 
     //Nav Button
     'profile'=> 'प्रोफाइल',
@@ -20,7 +24,15 @@ return [
     'about_btn' => 'बारेमा',
     'team_btn' => 'समूह',
     'term_and_condition_btn' => 'नियम र स्थितिहरू',
-    'contact_btn' => 'सम्पर्क'
+    'contact_btn' => 'सम्पर्क',
+
+    // Support Center UI
+    'support_center' => 'समर्थन केन्द्र',
+    'home' => 'गृहपृष्ठ',
+    'support_card' => 'नमस्ते, हामी सहायता गर्नका लागि यहाँ छौं',
+    'support_card_message' => 'यदि तपाईंलाई कुनै मद्दत चाहिन्छ भने तपाईंले समर्थन टिकट बनाउन सक्नुहुन्छ।',
+    'create_ticket_btn' => 'समर्थन टिकट बनाउनुहोस्',
+
 
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Support Center</title>
+    <title>@lang('translation.support_center')</title>
     @include('layouts.header')
 </head>
 
@@ -29,13 +29,13 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-main">
-                            <h4 class="text-capitalize breadcrumb-title">Support Center</h4>
+                            <h4 class="text-capitalize breadcrumb-title">@lang('translation.support_center')</h4>
                             <div class="breadcrumb-action justify-content-center flex-wrap">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#"><i
-                                                    class="uil uil-estate"></i>Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Support Center</li>
+                                        <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}"><i
+                                                    class="uil uil-estate"></i>@lang('translation.home')</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">@lang('translation.support_center')</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -50,14 +50,13 @@
                             <div class="row align-items-center">
                                 <div class="col-md-6">
                                     <div class="card-body d-inline-block">
-                                        <h1 class="d-flex">Hello, We are here to help</h1>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                        <h1 class="d-flex">@lang('translation.support_card')</h1>
+                                        <p>@lang('translation.support_card_message')
                                         </p>
                                         <div class="d-flex justify-content-start">
                                             <a href="{{ url('admin/ticket/create') }}"
                                                 class="btn btn-primary btn-default btn-squared btn-shadow-primary"
-                                                type="button">Create
-                                                Support Ticket
+                                                type="button">@lang('translation.create_ticket_btn')
                                             </a>
                                         </div>
                                     </div>

@@ -7,6 +7,9 @@ return [
 As you navigate through, feel free to explore the various functionalities tailored to meet your needs.',
     'learn_more_btn' => 'Learn More',
 
+    //Side Nav
+    'dashboard_btn'=>'Dashboard',
+
 
 
     //Nav Button
@@ -21,7 +24,14 @@ As you navigate through, feel free to explore the various functionalities tailor
     'about_btn' => 'About',
     'team_btn' => 'Team',
     'term_and_condition_btn' => 'Terms and Conditions',
-    'contact_btn' => 'Contact'
+    'contact_btn' => 'Contact',
+
+    //support center ui
+    'support_center'=>'Support Center',
+    'home'=>'Home',
+    'support_card' => 'Hello, We are here to help',
+    'support_card_message' => 'If you need any help then you can create a support ticket.',
+    'create_ticket_btn' => 'Create Support Ticket',
     
    
 ];
