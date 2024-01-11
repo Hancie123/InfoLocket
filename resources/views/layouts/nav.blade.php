@@ -1,11 +1,11 @@
    <nav class="navbar navbar-light">
        <div class="navbar-left">
            <div class="logo-area">
-               <a class="navbar-brand" href="{{url('admin/dashboard')}}">
+               <a class="navbar-brand" href="{{ url('admin/dashboard') }}">
                    <img class="dark" src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}" alt>
                    <img class="light" src="{{ url('assets/img/infolocket-high-resolution-logo-transparent.png') }}" alt>
                </a>
-               <a href="{{url('admin/dashboard')}}" class="sidebar-toggle">
+               <a href="{{ url('admin/dashboard') }}" class="sidebar-toggle">
                    <img class="svg" src="img/svg/align-center-alt.svg" alt="img"></a>
            </div>
 
@@ -33,13 +33,23 @@
 
                <li class="nav-flag-select">
                    <div class="dropdown-custom">
-                       <a href="javascript:;" class="nav-item-toggle"><img src="{{url('assets/img/flag.png')}}" alt
-                               class="rounded-circle"></a>
+                       <a href="javascript:;" class="nav-item-toggle">
+                           @if ($lang->lang == 'en')
+                               <img src="{{ url('assets/img/flag.png') }}" alt class="rounded-circle">
+                           @else
+                            <img src="{{ url('assets/img/nepali-flag.png') }}" alt class="rounded-circle">
+                           @endif
+
+                       </a>
                        <div class="dropdown-parent-wrapper">
                            <div class="dropdown-wrapper dropdown-wrapper--small">
-                               <a href><img src="{{url('assets/img/flag.png')}}" alt> English</a>
-                               <a href><img src="{{url('assets/img/nepali-flag.png')}}" alt> Nepali</a>
-                              
+
+                               <a href="{{ url('locale/en') }}"><img src="{{ url('assets/img/flag.png') }}" alt>
+                                   English</a>
+                               <a href="{{ url('locale/ne') }}"><img src="{{ url('assets/img/nepali-flag.png') }}" alt>
+                                   Nepali</a>
+
+
                            </div>
                        </div>
                    </div>
@@ -47,25 +57,27 @@
 
                <li class="nav-author">
                    <div class="dropdown-custom">
-                       <a href="javascript:;" class="nav-item-toggle"><img src="{{ Avatar::create(Auth()->user()->name)->toBase64() }}" alt
-                               class="rounded-circle">
-                           <span class="nav-item__title">{{Auth()->user()->name}}<i class="las la-angle-down nav-item__arrow"></i></span>
+                       <a href="javascript:;" class="nav-item-toggle"><img
+                               src="{{ Avatar::create(Auth()->user()->name)->toBase64() }}" alt class="rounded-circle">
+                           <span class="nav-item__title">{{ Auth()->user()->name }}<i
+                                   class="las la-angle-down nav-item__arrow"></i></span>
                        </a>
                        <div class="dropdown-parent-wrapper">
                            <div class="dropdown-wrapper">
                                <div class="nav-author__info">
                                    <div class="author-img">
-                                       <img src="{{ Avatar::create(Auth()->user()->name)->toBase64() }}" alt class="rounded-circle">
+                                       <img src="{{ Avatar::create(Auth()->user()->name)->toBase64() }}" alt
+                                           class="rounded-circle">
                                    </div>
                                    <div>
-                                       <h6>{{Auth()->user()->name}}</h6>
+                                       <h6>{{ Auth()->user()->name }}</h6>
                                        <span>InfoLocket User</span>
                                    </div>
                                </div>
                                <div class="nav-author__options">
                                    <ul>
                                        <li>
-                                           <a href="{{url('admin/profile')}}">
+                                           <a href="{{ url('admin/profile') }}">
                                                <i class="uil uil-user"></i> Profile</a>
                                        </li>
                                        <li>
@@ -82,7 +94,7 @@
                                                <i class="uil uil-users-alt"></i> Activity</a>
                                        </li>
                                        <li>
-                                           <a href="{{url('admin/support')}}">
+                                           <a href="{{ url('admin/support') }}">
                                                <i class="uil uil-bell"></i> Help</a>
                                        </li>
                                    </ul>

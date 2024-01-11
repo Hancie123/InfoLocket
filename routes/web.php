@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
@@ -28,6 +29,8 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
+Route::get('locale/{locale}',[LocalizationController::class, 'setLocale']);
+
 Route::post('login', [LoginController::class, 'login']);
 
 Route::get('forgot-password', [ResetPasswordController::class, 'forgot_password']);
@@ -35,7 +38,7 @@ Route::get('forgot-password', [ResetPasswordController::class, 'forgot_password'
 Route::get('register', [UserController::class, 'register']);
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth','lang']], function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/terms-and-conditions', [TermAndConditionController::class, 'index']);
 

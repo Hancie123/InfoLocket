@@ -20,8 +20,9 @@ class Kernel extends HttpKernel
         \Fahlisaputra\Minify\Middleware\MinifyJavascript::class,
         // Middleware to minify Blade
         \Fahlisaputra\Minify\Middleware\MinifyHtml::class,
-        
+
         // \App\Http\Middleware\TrustHosts::class,
+       
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -37,6 +38,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+           
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
@@ -60,6 +62,8 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
+       'lang'
+        => \App\Http\Middleware\LocalizationMiddleware::class,
         'checksession' => \App\Http\Middleware\CheckSession::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InfoLocket</title>
+    <title>@lang('translation.localization')</title>
     @include('layouts.header')
 </head>
 
@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="card-body px-25">
-                                                <h1 class="banner-feature__heading color-dark">Hey
+                                                <h1 class="banner-feature__heading color-dark">Hey @lang('translation.index')
                                                     {{ Auth()->user()->name }}! Welcome to
                                                     the Dashboard
                                                 </h1>
