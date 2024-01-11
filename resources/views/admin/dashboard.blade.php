@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@lang('translation.localization')</title>
+    <title>@lang('translation.app_title')</title>
     @include('layouts.header')
 </head>
 
@@ -34,19 +34,16 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="card-body px-25">
-                                                <h1 class="banner-feature__heading color-dark">Hey @lang('translation.index')
-                                                    {{ Auth()->user()->name }}! Welcome to
-                                                    the Dashboard
+                                                <h1 class="banner-feature__heading color-dark">Hey
+                                                    {{ Auth()->user()->name }}! 
+                                                    @lang('translation.welcome_card')
                                                 </h1>
-                                                <p class="banner-feature__para color-dark">We are delighted to have you
-                                                    on board.<br>
-                                                    As you navigate through, feel free to explore the various
-                                                    functionalities tailored to meet your needs.
+                                                <p class="banner-feature__para color-dark">@lang('translation.welcome_message')
                                                 </p>
                                                 <div class="d-flex justify-content-sm-start justify-content-center">
                                                     <button
                                                         class="banner-feature__btn btn btn-primary color-white btn-md radius-xs fs-15"
-                                                        type="button">Learn More</button>
+                                                        type="button">@lang('translation.learn_more_btn')</button>
                                                 </div>
                                             </div>
                                         </div>

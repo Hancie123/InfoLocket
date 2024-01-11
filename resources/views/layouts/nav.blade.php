@@ -71,35 +71,35 @@
                                    </div>
                                    <div>
                                        <h6>{{ Auth()->user()->name }}</h6>
-                                       <span>InfoLocket User</span>
+                                       <span>@lang('translation.user_status')</span>
                                    </div>
                                </div>
                                <div class="nav-author__options">
                                    <ul>
                                        <li>
                                            <a href="{{ url('admin/profile') }}">
-                                               <i class="uil uil-user"></i> Profile</a>
+                                               <i class="uil uil-user"></i> @lang('translation.profile')</a>
                                        </li>
                                        <li>
                                            <a href>
                                                <i class="uil uil-setting"></i>
-                                               Settings</a>
+                                               @lang('translation.setting_btn')</a>
                                        </li>
                                        {{-- <li>
                                            <a href>
                                                <i class="uil uil-key-skeleton"></i> Billing</a>
                                        </li> --}}
-                                       <li>
+                                       {{-- <li>
                                            <a href>
                                                <i class="uil uil-users-alt"></i> Activity</a>
-                                       </li>
+                                       </li> --}}
                                        <li>
                                            <a href="{{ url('admin/support') }}">
-                                               <i class="uil uil-bell"></i> Help</a>
+                                               <i class="uil uil-bell"></i> @lang('translation.help_btn')</a>
                                        </li>
                                    </ul>
                                    <a href class="nav-author__signout">
-                                       <i class="uil uil-sign-out-alt"></i> Sign Out</a>
+                                       <i class="uil uil-sign-out-alt"></i> @lang('translation.sign_out_btn')</a>
                                </div>
                            </div>
 

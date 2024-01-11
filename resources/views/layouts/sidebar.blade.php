@@ -11,7 +11,7 @@
 
                  </li>
 
-                 <li>
+                 {{-- <li>
                      <a href="changelog.html" class>
                          <span class="nav-icon uil uil-arrow-growth"></span>
                          <span class="menu-text">Changelog</span>
@@ -64,41 +64,13 @@
                              <a href="blog-details.html">Details</a>
                          </li>
                      </ul>
-                 </li>
-                 <li class>
-                     <a href="terms.html">
-                         <span class="nav-icon uil uil-question-circle"></span>
-                         <span class="menu-text">Terms & Conditions</span>
-                     </a>
-                 </li>
-                 <li class>
-                     <a href="maintenance.html">
-                         <span class="nav-icon uil uil-airplay"></span>
-                         <span class="menu-text">Maintenance</span>
-                     </a>
-                 </li>
-                 <li class>
-                     <a href="404.html">
-                         <span class="nav-icon uil uil-exclamation-triangle"></span>
-                         <span class="menu-text">404</span>
-                     </a>
-                 </li>
-                 <li class>
-                     <a href="coming-soon.html">
-                         <span class="nav-icon uil uil-sync"></span>
-                         <span class="menu-text">Coming Soon</span>
-                     </a>
-                 </li>
-                 <li class>
-                     <a href="login.html">
-                         <span class="nav-icon uil uil-signin"></span>
-                         <span class="menu-text">Log In</span>
-                     </a>
-                 </li>
+                 </li> --}}
+                
+        
                  <li class>
                      <a href="sign-up.html">
                          <span class="nav-icon uil uil-sign-out-alt"></span>
-                         <span class="menu-text">Sign Up</span>
+                         <span class="menu-text">@lang('translation.sign_out_btn')</span>
                      </a>
                  </li>
              </ul>
