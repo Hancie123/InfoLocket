@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="footer-copyright">
-                        <p><span>© <?php echo Date('Y'); ?></span><a href="#">Tech Revo</a>
+                        <p><span>© <?php echo Date('Y'); ?></span><a href="#">@lang('translation.tech_revo')</a>
                         </p>
                     </div>
                 </div>
