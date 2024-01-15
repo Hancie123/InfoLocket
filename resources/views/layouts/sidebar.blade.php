@@ -3,7 +3,7 @@
          <div class="sidebar__menu-group">
              <ul class="sidebar_nav">
                  <li class="active">
-                     <a href="{{url('admin/dashboard')}}" class="active">
+                     <a href="{{ url('admin/dashboard') }}" class="active">
                          <span class="nav-icon uil uil-create-dashboard"></span>
                          <span class="menu-text">@lang('translation.dashboard_btn')</span>
 
@@ -65,8 +65,14 @@
                          </li>
                      </ul>
                  </li> --}}
-                
-        
+
+                 <li class>
+                     <a href="{{ url('admin/contacts') }}">
+                         <span class="nav-icon uil uil-at"></span>
+                         <span class="menu-text">Contacts</span>
+                     </a>
+                 </li>
+
                  <li class>
                      <a href="sign-up.html">
                          <span class="nav-icon uil uil-sign-out-alt"></span>

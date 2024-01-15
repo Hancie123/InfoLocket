@@ -8,13 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserContact extends Model
 {
     use HasFactory;
-    protected $table="user_contacts";
-    protected $primaryKey="usercontact_id";
-
-    protected $fillable=[
-        'country','location','address','phone','website','user_id'
-
-    ];
+    protected $guraded=['id'];
 
     public function user(){
         return $this->belongsTo(User::class);

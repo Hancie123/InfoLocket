@@ -29,7 +29,7 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
-Route::get('locale/{locale}',[LocalizationController::class, 'setLocale']);
+Route::get('locale/{locale}', [LocalizationController::class, 'setLocale']);
 
 Route::post('login', [LoginController::class, 'login']);
 
@@ -38,14 +38,15 @@ Route::get('forgot-password', [ResetPasswordController::class, 'forgot_password'
 Route::get('register', [UserController::class, 'register']);
 
 
-Route::group(['middleware' => ['auth','lang']], function () {
+Route::group(['middleware' => ['auth', 'lang']], function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/terms-and-conditions', [TermAndConditionController::class, 'index']);
 
-    Route::get('admin/profile',[ProfileController::class,'profile']);
+    Route::get('admin/profile', [ProfileController::class, 'profile']);
 
-    Route::get('admin/support',[SupportController::class,'index']);
+    Route::get('admin/support', [SupportController::class, 'index']);
     Route::get('admin/ticket/create', [TicketController::class, 'index']);
 
-   
+    Route::get('admin/contacts', [ContactController::class, 'index']);
+    Route::post('admin/contacts', [ContactController::class, 'store']);
 });
