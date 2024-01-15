@@ -131,10 +131,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="table-actions">
-                                                            <a href="#" class>
-                                                                <img src="img/svg/star.svg" alt="star"
-                                                                    class="svg">
-                                                            </a>
+                                                            
                                                             <div class="dropdown dropdown-click">
                                                                 <button class="btn-link border-0 bg-transparent p-0"
                                                                     data-bs-toggle="dropdown" aria-haspopup="true"
