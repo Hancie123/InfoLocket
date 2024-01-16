@@ -70,4 +70,21 @@ class ContactController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+     public function destroy(string $id){
+        $contact= Contact::where('id',$id)->first();
+        if (is_null($contact)) {
+            return back()->with('error','Contact not found');
+        }
+        try {
+            $contact=DB::transaction(function() use($contact){
+                $contact->delete();
+                return $contact;
+            });
+            if ($contact) {
+                return back()->with('success','Contact Deleted Successfully!');
+            }
+        } catch (\Exception $e) {
+            return back()->with('error',$e->getMessage());
+        }
+     }
 }
