@@ -69,7 +69,7 @@
                 <li class="{{ request()->is('admin/contacts') ? 'active' : '' }}">
                      <a href="{{ url('admin/contacts') }}">
                          <span class="nav-icon uil uil-at"></span>
-                         <span class="menu-text">Contacts</span>
+                         <span class="menu-text">@lang('translation.contacts_btn')</span>
                      </a>
                  </li>
 

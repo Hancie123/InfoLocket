@@ -9,6 +9,7 @@ As you navigate through, feel free to explore the various functionalities tailor
 
     //Side Nav
     'dashboard_btn' => 'Dashboard',
+    'contacts_btn'=>'Contacts',
 
 
 
@@ -57,4 +58,7 @@ As you navigate through, feel free to explore the various functionalities tailor
     'answer6' => 'We are committed to providing a secure and up-to-date platform. Updates are regularly released to enhance features, address any potential security concerns, and improve overall user experience.',
     'question7' => 'Is Merolocket free to use?',
     'answer7' => 'Merolocket offers both free and premium plans. While the basic features are available for free, you can upgrade to a premium plan for additional benefits and enhanced capabilities.',
+
+    //contacts ui
+    'add_new_btn'=>'Add New',
 ];

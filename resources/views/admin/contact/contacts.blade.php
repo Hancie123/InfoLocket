@@ -33,7 +33,7 @@
                                 <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
                                     <div
                                         class="d-flex align-items-center add-contact__title justify-content-center me-sm-25">
-                                        <h4 class="text-capitalize fw-500 breadcrumb-title">Contacts</h4>
+                                        <h4 class="text-capitalize fw-500 breadcrumb-title">@lang('translation.contacts_btn')</h4>
                                         <span class="sub-title ms-sm-25 ps-sm-25"></span>
                                     </div>
                                     <form action="/"
@@ -46,7 +46,7 @@
                                 <div class="action-btn">
                                     <a href="#" class="btn px-15 btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#add-contact">
-                                        <i class="las la-plus fs-16"></i>Add New
+                                        <i class="las la-plus fs-16"></i>@lang('translation.add_new_btn')
                                     </a>
 
                                     {{-- model here --}}
@@ -131,7 +131,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="table-actions">
-                                                            
+
                                                             <div class="dropdown dropdown-click">
                                                                 <button class="btn-link border-0 bg-transparent p-0"
                                                                     data-bs-toggle="dropdown" aria-haspopup="true"
