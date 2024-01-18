@@ -49,5 +49,8 @@ Route::group(['middleware' => ['auth', 'lang']], function () {
 
     Route::get('admin/contacts', [ContactController::class, 'index']);
     Route::post('admin/contacts', [ContactController::class, 'store']);
-    Route::delete('admin/contacts/{id}',[ContactController::class,'destroy']);
+    Route::get('admin/contacts/{id}',[ContactController::class,'destroy']);
+    Route::get('admin/contacts/edit/{id}',[ContactController::class,'edit']);
+    Route::post('admin/contacts/update',[ContactController::class,'update']);
+    Route::get('admin/contacts/view/{id}',[ContactController::class,'show']);
 });

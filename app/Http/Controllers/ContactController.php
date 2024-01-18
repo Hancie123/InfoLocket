@@ -44,9 +44,21 @@ class ContactController extends Controller
         }
     }
 
-    public function update(ContactRequest $request, $id)
+    public function show($id){
+        $lang=Localization::where('user_id', auth()->user()->id)->first();
+        $contact=Contact::find($id);
+        return view('admin.contact.view_contact', compact('contact', 'lang'));
+    }
+
+    public function edit($id){
+        $lang = Localization::where('user_id', auth()->user()->id)->first();
+        $contact= Contact::find($id);
+        return view('admin.contact.edit_contact', compact('contact','lang'));
+    }
+
+    public function update(ContactRequest $request)
     {
-        $contact = Contact::where('id', $id)->first();
+        $contact = Contact::find($request->id);
         if (is_null($contact)) {
             return back()->with('error', 'Contact not found!');
         }
@@ -64,14 +76,14 @@ class ContactController extends Controller
             });
 
             if ($contact) {
-                return back()->with('success', 'Contact updated successfully!');
+                return redirect('admin/contacts')->with('success', 'Contact updated successfully!');
             }
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
     }
      public function destroy(string $id){
-        $contact= Contact::where('id',$id)->first();
+        $contact= Contact::find($id);
         if (is_null($contact)) {
             return back()->with('error','Contact not found');
         }
@@ -86,5 +98,10 @@ class ContactController extends Controller
         } catch (\Exception $e) {
             return back()->with('error',$e->getMessage());
         }
+     }
+
+     public function search(Request $request){
+        $contact= Contact::where('name','like','%'.$request->search.'%')->get();
+        return view('admin.contacts.index', compact('contact'));
      }
 }
