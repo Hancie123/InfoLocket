@@ -7,6 +7,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\TermAndConditionController;
@@ -53,4 +54,8 @@ Route::group(['middleware' => ['auth', 'lang']], function () {
     Route::get('admin/contacts/edit/{id}',[ContactController::class,'edit']);
     Route::post('admin/contacts/update',[ContactController::class,'update']);
     Route::get('admin/contacts/view/{id}',[ContactController::class,'show']);
+
+    Route::get('admin/notes', [NotesController::class,'index']);
+    Route::post('admin/notes',[NotesController::class,'store']);
+    Route::get('admin/notes/{id}', [NotesController::class, 'destroy']);
 });

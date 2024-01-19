@@ -49,35 +49,32 @@
                                                         <div class="form-group mb-25">
                                                             <label for="name1">name</label>
                                                             <input type="text" class="form-control" id="name1"
-                                                                name="name" value="{{ $contact->name }}">
+                                                                name="name" value="{{ $contact->name }}" readonly>
                                                         </div>
                                                         <div class="form-group mb-25">
                                                             <label for="name2">Email</label>
                                                             <input type="email" class="form-control" id="name2"
-                                                                name="email" value="{{ $contact->email }}">
+                                                                name="email" value="{{ $contact->email }}" readonly>
                                                         </div>
                                                         <div class="form-group mb-25">
                                                             <label for="phoneNumber5">phone number</label>
                                                             <input type="tel" class="form-control" id="phoneNumber5"
-                                                                name="phone" value="{{ $contact->phone }}">
+                                                                name="phone" value="{{ $contact->phone }}" readonly>
                                                         </div>
                                                         <div class="form-group mb-25">
                                                             <label for="name3">occupation</label>
                                                             <input type="text" class="form-control" id="name3"
-                                                                name="occupation" value="{{ $contact->occupation }}">
+                                                                name="occupation" value="{{ $contact->occupation }}" readonly>
                                                         </div>
                                                         <div class="form-group mb-25">
                                                             <label for="phoneNumber2">Address</label>
                                                             <input type="text" class="form-control" id="phoneNumber2"
-                                                                name="address" value="{{ $contact->address }}">
+                                                                name="address" value="{{ $contact->address }}" readonly>
                                                         </div>
                                                         <div
                                                             class="button-group d-flex pt-sm-25 justify-content-md-end justify-content-start ">
                                                             <a href="{{ url('admin/contacts')}}"
                                                                 class="btn btn-light btn-default btn-squared fw-400 text-capitalize radius-md btn-sm">back
-                                                            </a>
-                                                            <a href="{{ url('admin/contacts/edit') }}/{{ $contact->id }}"
-                                                                class="btn btn-primary btn-default btn-squared text-capitalize radius-md shadow2 btn-sm">Edit
                                                             </a>
                                                         </div>
                                                     </form>

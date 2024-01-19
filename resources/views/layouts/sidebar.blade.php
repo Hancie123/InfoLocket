@@ -73,6 +73,13 @@
                      </a>
                  </li>
 
+                 <li class="{{ request()->is('admin/notes') ? 'active': '' }}">
+                    <a href="{{ url('admin/notes')}}">
+                    <span class="nav-icon uil uil-clipboard-notes"></span>
+                    <span class="menu-text">Note</span>
+                    </a>
+                    </li>
+
                  <li class>
                      <a href="sign-up.html">
                          <span class="nav-icon uil uil-sign-out-alt"></span>
