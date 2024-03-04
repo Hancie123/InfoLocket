@@ -39,8 +39,8 @@
                                     <form action="/"
                                         class="d-flex align-items-center add-contact__form my-sm-0 my-2">
                                         <img src="img/svg/search.svg" alt="search" class="svg">
-                                        <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" name="search"
-                                            placeholder="Search by Name" aria-label="Search">
+                                        <input class="form-control me-sm-2 border-0 box-shadow-none" type="search"
+                                            name="search" placeholder="Search by Name" aria-label="Search">
                                     </form>
                                 </div>
                                 <div class="action-btn">
@@ -141,9 +141,12 @@
                                                                 </button>
                                                                 <div
                                                                     class="dropdown-default dropdown-menu dropdown-menu--dynamic">
-                                                                    <a class="dropdown-item" href="{{ url('admin/contacts/view') }}/{{ $data->id }}">view</a>
-                                                                    <a class="dropdown-item" href="{{ url('admin/contacts/edit') }}/{{ $data->id }}">edit</a>
-                                                                    <a class="dropdown-item" href="{{ url('admin/contacts') }}/{{ $data->id }}">delete</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ url('admin/contacts/view') }}/{{ $data->id }}">view</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ url('admin/contacts/edit') }}/{{ $data->id }}">edit</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ url('admin/contacts') }}/{{ $data->id }}">delete</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -156,6 +159,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     @include('layouts.footer')
